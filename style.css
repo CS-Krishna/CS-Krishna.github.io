@@ -185,17 +185,16 @@ nav {
   font-family: var(--sans);
   font-size: clamp(2.6rem, 5.5vw, 5.5rem);
   font-weight: 800;
-  line-height: 0.95;
+  line-height: 1.0;
   letter-spacing: -0.02em;
   color: #fff;
   margin-bottom: 0.5rem;
-  overflow: hidden;
-  word-break: break-word;
+  white-space: nowrap;
 }
 .hero-name span {
   color: transparent;
   -webkit-text-stroke: 1px var(--accent);
-  display: block;          /* forces it onto its own line, never clips right */
+  display: block;
 }
 
 .hero-title {
@@ -507,7 +506,7 @@ footer {
   .terminal-title { font-size: 0.58rem; }
   .terminal-body { font-size: 0.65rem; line-height: 1.8; padding: 0.9rem; overflow-x: hidden; }
 
-  .hero-name { font-size: clamp(2.8rem, 14vw, 4.5rem); }
+  .hero-name { font-size: 11vw; white-space: nowrap; }
   .hero-title { font-size: clamp(0.6rem, 2.8vw, 0.78rem); letter-spacing: 0.04em; }
   .hero-desc  { font-size: 0.9rem; }
 
@@ -529,7 +528,7 @@ footer {
 
 /* Small phones */
 @media (max-width: 480px) {
-  .hero-name { font-size: clamp(2.4rem, 13vw, 3.2rem); letter-spacing: -0.03em; }
+  .hero-name { font-size: 11vw; letter-spacing: -0.03em; white-space: nowrap; }
   .hero-tag  { font-size: 0.58rem; letter-spacing: 0.08em; }
   .hero-title { font-size: 0.62rem; }
 
