@@ -12,7 +12,15 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+
+/* Hide scrollbar — Chrome, Safari, Edge */
+::-webkit-scrollbar { display: none; }
+
+html {
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;   /* IE / Edge */
+  scrollbar-width: none;      /* Firefox */
+}
 
 body {
   background: var(--bg);
@@ -43,8 +51,10 @@ body {
   transition: all 0.18s ease;
   opacity: 0.5;
 }
-@media (hover: none) {
-  .cursor, .cursor-ring { display: none; }
+
+/* Remove custom cursor entirely on touch / mobile */
+@media (hover: none), (pointer: coarse) {
+  .cursor, .cursor-ring { display: none !important; }
   body { cursor: auto; }
 }
 
