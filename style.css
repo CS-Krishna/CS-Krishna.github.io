@@ -13,13 +13,16 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Hide scrollbar — Chrome, Safari, Edge */
-::-webkit-scrollbar { display: none; }
+/* Hide scrollbar — all browsers including Samsung Internet */
+::-webkit-scrollbar { width: 0 !important; height: 0 !important; display: none; background: transparent; }
+::-webkit-scrollbar-track { display: none; background: transparent; }
+::-webkit-scrollbar-thumb { display: none; background: transparent; }
 
 html {
   scroll-behavior: smooth;
-  -ms-overflow-style: none;   /* IE / Edge */
-  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: -moz-scrollbars-none;
 }
 
 body {
@@ -28,8 +31,11 @@ body {
   font-family: var(--body);
   font-weight: 300;
   overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   cursor: none;
 }
+body::-webkit-scrollbar { width: 0 !important; display: none; }
 
 /* ── CUSTOM CURSOR ── */
 .cursor {
@@ -52,10 +58,10 @@ body {
   opacity: 0.5;
 }
 
-/* Remove custom cursor entirely on touch / mobile */
+/* Remove custom cursor on touch / mobile via CSS */
 @media (hover: none), (pointer: coarse) {
   .cursor, .cursor-ring { display: none !important; }
-  body { cursor: auto; }
+  body { cursor: auto !important; }
 }
 
 /* ── NOISE OVERLAY ── */
