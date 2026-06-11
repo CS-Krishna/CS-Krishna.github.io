@@ -32,10 +32,10 @@
     whoami: () => [
       { t: 'info', v: '// SUBJECT IDENTIFICATION' },
       { t: 'out',  v: '' },
-      { t: 'out',  v: '  Name        :  Krishna Sachdev' },
+      { t: 'out',  v: '  Name        :  Krishna Sachdevaa' },
       { t: 'out',  v: '  Role        :  Digital Forensics Analyst' },
-      { t: 'out',  v: '  Institution :  NFSU Goa — M.Sc. Sem II' },
-      { t: 'out',  v: '  Internship  :  CFAL Chandigarh (June 2026) [ ACTIVE ]' },
+      { t: 'out',  v: '  Institution :  NFSU Goa — M.Sc. DFIS' },
+      { t: 'out',  v: '  Internship  :  Central Forensics Science Laboratory, Chandigarh (June 2026) [ ACTIVE ]' },
       { t: 'out',  v: '  Status      :  Available for Opportunities' },
       { t: 'out',  v: '' },
       { t: 'ok',   v: '  [VERIFIED] Subject record authenticated.' },
@@ -55,7 +55,7 @@
       return [
         { t: 'info', v: '// MISSION LOG' },
         { t: 'out',  v: '' },
-        { t: 'out',  v: '  [2026-06]  CFAL Chandigarh     — Forensic Intern  [ ACTIVE ]' },
+        { t: 'out',  v: '  [2026-06]  Central Forensics Science Laboratory, Chandigarh     — Forensic Intern  [ ACTIVE ]' },
         { t: 'out',  v: '  [2024]     Netsmartz            — Cybersecurity Intern' },
         { t: 'out',  v: '  [2023]     Super Student        — UAT Intern' },
         { t: 'out',  v: '  [ongoing]  CTF Platforms        — Competitor' },
@@ -113,7 +113,7 @@
         { t: 'info', v: '// COMMENDATION RECORD' },
         { t: 'out',  v: '' },
         { t: 'out',  v: '  ✦  Android Forensics Tool — Published' },
-        { t: 'out',  v: '  ✦  CFAL Forensic Internship — June 2026' },
+        { t: 'out',  v: '  ✦  CFSL Forensic Internship — June 2026' },
         { t: 'out',  v: '  ✦  Google Cybersecurity Certificate' },
         { t: 'out',  v: '  ✦  ISC² & EC-Council Dual Certified' },
         { t: 'out',  v: '  ✦  Active CTF Competitor' },
@@ -253,7 +253,7 @@
   /* ─── AUTO DEMO (runs after loader) ─── */
   function autoDemo() {
     addLine({ t: 'ok',   v: '// Secure connection established.' });
-    addLine({ t: 'info', v: '// Welcome to Krishna Sachdev\'s portfolio terminal.' });
+    addLine({ t: 'info', v: '// Welcome to Krishna Sachdeva\'s portfolio terminal.' });
     addLine({ t: 'cmt',  v: '// Type \'help\' to see available commands.' });
     addLine({ t: 'out',  v: '' });
 
