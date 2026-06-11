@@ -1,335 +1,859 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Krishna Sachdeva — Digital Forensics & InfoSec</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO -->
+  <title>Krishna Sachdev — Digital Forensics & Information Security</title>
+  <meta name="description" content="Portfolio of Krishna Sachdev — M.Sc. Digital Forensics & Information Security at NFSU Goa. Forensic analyst, security researcher, and CTF competitor.">
+  <meta name="author" content="Krishna Sachdev">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sachdevakrishna.me/">
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Krishna Sachdev — Digital Forensics Portfolio">
+  <meta property="og:description" content="M.Sc. Digital Forensics & Information Security — NFSU Goa">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://sachdevakrishna.me/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Krishna Sachdev — Digital Forensics">
+  <meta name="twitter:description" content="M.Sc. Digital Forensics & Information Security — NFSU Goa">
+
+  <!-- Security -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy"        content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy"     content="camera=(), microphone=(), geolocation=()">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
 </head>
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
+<!-- ════════ LOADING SCREEN ════════ -->
+<div id="loader" class="loader" aria-hidden="true">
+  <div class="loader-name">KRISHNA <span>SACHDEV</span></div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-text">// initialising portfolio</div>
+</div>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo">KS_</div>
-    <ul class="nav-links">
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#achievements">Achievements</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+<!-- ════════ CUSTOM CURSOR ════════ -->
+<div id="cursor-dot"  aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
 
-  <!-- MOBILE MENU OVERLAY -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#skills" class="mobile-link">Skills</a>
-    <a href="#experience" class="mobile-link">Experience</a>
-    <a href="#projects" class="mobile-link">Projects</a>
-    <a href="#achievements" class="mobile-link">Achievements</a>
-    <a href="#contact" class="mobile-link">Contact</a>
+<!-- ════════ DRAWER OVERLAY ════════ -->
+<div id="drawer-overlay" class="drawer-overlay" aria-hidden="true"></div>
+
+<!-- ════════ DRAWER SIDEBAR ════════ -->
+<aside id="drawer" class="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="drawer-header">
+    <span class="drawer-file-id">FILE // KS-2025-001</span>
+    <button id="drawer-close" class="drawer-close" aria-label="Close navigation">✕</button>
   </div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-left fade-up visible">
-      <div class="hero-tag">Digital Forensics &amp; Information Security</div>
-      <h1 class="hero-name">Krishna <span>Sachdeva</span></h1>
-      <div class="hero-title">
-        <span>M.Sc. DFIS @ National Forensics Science University, Goa</span>
-        <span class="blink">|</span>
-      </div>
-      <p class="hero-desc">
-        Postgraduate student specialising in digital forensics and offensive security.
-        Passionate about CTFs, vulnerability research, and building tools that sit at the
-        intersection of cybersecurity and AI.
-      </p>
-      <div class="hero-ctas">
-        <a href="mailto:krishsach3305&#64;gmail.com" class="btn-primary">Get in Touch</a>
-        <a href="https://github.com/CS-Krishna" target="_blank" class="btn-ghost">GitHub &rarr;</a>
-      </div>
-    </div>
-    <div class="hero-right fade-up visible">
-      <div class="terminal">
-        <div class="terminal-header">
-          <div class="t-dot r"></div>
-          <div class="t-dot y"></div>
-          <div class="t-dot g"></div>
-          <div class="terminal-title">krishna&#64;nfsu-goa ~ bash</div>
-        </div>
-        <div class="terminal-body">
-          <div class="t-line"><span class="t-prompt">&#10145;</span><span class="t-cmd">whoami</span></div>
-          <div class="t-out hi">Krishna Sachdeva</div>
-          <div class="t-line"><span class="t-prompt">&#10145;</span><span class="t-cmd">cat status.txt</span></div>
-          <div class="t-out">M.Sc. DFIS &mdash; Semester 2</div>
-          <div class="t-out">NFSU Goa Campus</div>
-          <div class="t-line"><span class="t-prompt">&#10145;</span><span class="t-cmd">cat interests.txt</span></div>
-          <div class="t-out hi">[+] Digital Forensics</div>
-          <div class="t-out hi">[+] Offensive Security</div>
-          <div class="t-out hi">[+] CTF Competitions</div>
-          <div class="t-out hi">[+] Malware Analysis</div>
-          <div class="t-line"><span class="t-prompt">&#10145;</span><span class="t-cmd">ping linkedin.com</span></div>
-          <div class="t-out warn">64 bytes &middot; krishna-sachdeva &middot; ttl=64</div>
-          <div class="t-line"><span class="t-prompt">&#10145;</span><span class="t-cmd"><span class="blink">&#9608;</span></span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="drawer-profile">
+    <div class="drawer-avatar" aria-hidden="true">KS</div>
+    <div class="drawer-name">Krishna Sachdev</div>
+    <div class="drawer-role">// Digital Forensics Analyst</div>
+  </div>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label">Technical Arsenal</div>
-    <h2 class="section-title">Skills &amp; Tools</h2>
-    <div class="skills-grid">
-      <div class="skill-card fade-up">
-        <div class="skill-icon">&#128269;</div>
-        <div class="skill-name">Digital Forensics</div>
-        <div class="skill-desc">Memory, disk, and network forensics. Familiar with Autopsy and forensic investigation workflows.</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
-      </div>
-      <div class="skill-card fade-up">
-        <div class="skill-icon">&#128737;</div>
-        <div class="skill-name">Web Security</div>
-        <div class="skill-desc">Burp Suite, OWASP ZAP. SQLi, CSRF, Broken Access Control. Hands-on with OWASP Juice Shop.</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-      </div>
-      <div class="skill-card fade-up">
-        <div class="skill-icon">&#128013;</div>
-        <div class="skill-name">Python</div>
-        <div class="skill-desc">Security scripting, steganography tools, GUI development, ML integrations, and automation.</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
-      </div>
-      <div class="skill-card fade-up">
-        <div class="skill-icon">&#127760;</div>
-        <div class="skill-name">Network Security</div>
-        <div class="skill-desc">Wireshark, Wazuh. Network traffic analysis and cloud security fundamentals.</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
-      </div>
-      <div class="skill-card fade-up">
-        <div class="skill-icon">&#128039;</div>
-        <div class="skill-name">Linux</div>
-        <div class="skill-desc">Comfortable with Linux environments for security operations, CTF challenges, and tool usage.</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div>
-      </div>
-      <div class="skill-card fade-up">
-        <div class="skill-icon">&#128681;</div>
-        <div class="skill-name">CTF &amp; Exploitation</div>
-        <div class="skill-desc">Web security, cryptography, and system exploitation. Active on TryHackMe and campus CTFs.</div>
-        <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
-      </div>
-    </div>
-  </section>
+  <nav class="drawer-nav" aria-label="Site sections">
+    <div class="drawer-nav-label" aria-hidden="true">Navigate</div>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-label">Work History</div>
-    <h2 class="section-title">Experience</h2>
-    <div class="timeline">
-      <div class="tl-item fade-up">
-        <div class="tl-dot"></div>
-        <div class="tl-date">2025 &mdash; Present</div>
-        <div class="tl-title">M.Sc. Digital Forensics &amp; Information Security</div>
-        <div class="tl-org">National Forensics Science University, Goa &middot; Semester 2</div>
-        <div class="tl-desc">Specialising in digital forensics, offensive security, and investigation techniques. Actively participating in CTF competitions and security research at India's premier forensics university.</div>
-      </div>
-      <div class="tl-item fade-up">
-        <div class="tl-dot"></div>
-        <div class="tl-date">Internship</div>
-        <div class="tl-title">Cybersecurity Intern</div>
-        <div class="tl-org">Netsmartz</div>
-        <div class="tl-desc">Hands-on experience with Burp Suite, ZAP, and OWASP Juice Shop. Identified and mitigated vulnerabilities including SQL Injection, CSRF, and Broken Access Control. Explored Network and Cloud Security with Wazuh.</div>
-      </div>
-      <div class="tl-item fade-up">
-        <div class="tl-dot"></div>
-        <div class="tl-date">Internship</div>
-        <div class="tl-title">Software UAT Intern</div>
-        <div class="tl-org">Super Student</div>
-        <div class="tl-desc">Conducted rigorous user acceptance testing across multiple software features. Identified and reported bugs, improving software quality and user experience through systematic UI evaluation.</div>
-      </div>
-      <div class="tl-item fade-up">
-        <div class="tl-dot"></div>
-        <div class="tl-date">2022 &mdash; 2025</div>
-        <div class="tl-title">Bachelor of Computer Applications</div>
-        <div class="tl-org">Amity University, Punjab &middot; 77.1%</div>
-        <div class="tl-desc">Graduated with a strong foundation in computing. Served as elected Class Representative, led teams on development projects, and participated in cultural and social initiatives including NSS.</div>
-      </div>
-    </div>
-  </section>
+    <button class="drawer-item" data-section="hero">
+      <span class="di-num" aria-hidden="true">00</span>
+      <span class="di-label">Home</span>
+      <span class="di-tag" aria-hidden="true">_welcome</span>
+    </button>
+    <button class="drawer-item" data-section="about">
+      <span class="di-num" aria-hidden="true">01</span>
+      <span class="di-label">About</span>
+      <span class="di-tag" aria-hidden="true">_investigator</span>
+    </button>
+    <button class="drawer-item" data-section="experience">
+      <span class="di-num" aria-hidden="true">02</span>
+      <span class="di-label">Experience</span>
+      <span class="di-tag" aria-hidden="true">_mission_log</span>
+    </button>
+    <button class="drawer-item" data-section="projects">
+      <span class="di-num" aria-hidden="true">03</span>
+      <span class="di-label">Projects</span>
+      <span class="di-tag" aria-hidden="true">_case_files</span>
+    </button>
+    <button class="drawer-item" data-section="skills">
+      <span class="di-num" aria-hidden="true">04</span>
+      <span class="di-label">Skills</span>
+      <span class="di-tag" aria-hidden="true">_tech_matrix</span>
+    </button>
+    <button class="drawer-item" data-section="certifications">
+      <span class="di-num" aria-hidden="true">05</span>
+      <span class="di-label">Certifications</span>
+      <span class="di-tag" aria-hidden="true">_vault</span>
+    </button>
+    <button class="drawer-item" data-section="achievements">
+      <span class="di-num" aria-hidden="true">06</span>
+      <span class="di-label">Achievements</span>
+      <span class="di-tag" aria-hidden="true">_commendations</span>
+    </button>
+    <button class="drawer-item" data-section="contact">
+      <span class="di-num" aria-hidden="true">07</span>
+      <span class="di-label">Contact</span>
+      <span class="di-tag" aria-hidden="true">_secure_comms</span>
+    </button>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-label">Build Log</div>
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card fade-up">
-        <div class="project-num">// 01</div>
-        <div class="project-title">ML Movie Recommendation + XAI</div>
-        <div class="project-desc">Co-created a machine learning-based movie recommendation system incorporating Explainable AI (XAI) techniques to make model predictions interpretable and transparent.</div>
-        <div class="tags">
-          <span class="tag accent">Python</span>
-          <span class="tag accent">ML</span>
-          <span class="tag">Explainable AI</span>
-          <span class="tag">Collaborative</span>
+    <div class="drawer-nav-label" aria-hidden="true">Actions</div>
+    <a class="drawer-item" href="/resume/KrishnaSachdev-CV.pdf" download data-resume>
+      <span class="di-num" aria-hidden="true">↓</span>
+      <span class="di-label">Download Resume</span>
+      <span class="di-tag" aria-hidden="true">.pdf</span>
+    </a>
+  </nav>
+
+  <div class="drawer-footer">
+    <div class="drawer-status-row">
+      <div class="drawer-status-dot" aria-hidden="true"></div>
+      <div class="drawer-status-text">STATUS: <em>AVAILABLE</em></div>
+    </div>
+    <div class="drawer-socials">
+      <a class="drawer-social" href="https://github.com/CS-Krishna"              target="_blank" rel="noopener noreferrer" aria-label="GitHub">GH</a>
+      <a class="drawer-social" href="https://linkedin.com/in/krishna-sachdev"    target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LI</a>
+      <a class="drawer-social" href="mailto:krishna@sachdevakrishna.me"          aria-label="Email">✉</a>
+      <a class="drawer-social" href="/resume/KrishnaSachdev-CV.pdf" download     aria-label="Resume">CV</a>
+    </div>
+  </div>
+</aside>
+
+<!-- ════════ TOP NAVBAR ════════ -->
+<header>
+  <nav class="topnav" role="navigation" aria-label="Main navigation">
+    <div class="nav-logo" role="button" tabindex="0" aria-label="Go to home" style="cursor:pointer;">
+      <span class="nav-logo-name">Krishna Sachdev</span>
+      <div class="nav-logo-sep" aria-hidden="true"></div>
+      <span class="nav-logo-sub">Digital Forensics</span>
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-link" data-section="about">About</button>
+      <button class="nav-link" data-section="projects">Projects</button>
+      <button class="nav-link" data-section="contact">Contact</button>
+      <a class="nav-btn" href="/resume/KrishnaSachdev-CV.pdf" download>Resume ↓</a>
+      <button
+        id="hamburger"
+        class="hamburger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="drawer"
+      >
+        <span class="ham-line" aria-hidden="true"></span>
+        <span class="ham-line" aria-hidden="true"></span>
+        <span class="ham-line" aria-hidden="true"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- ════════════════════════════════════════
+     SECTION 0 — HERO
+════════════════════════════════════════ -->
+<div id="section-hero" class="page-section">
+  <section class="hero-section" aria-label="Introduction">
+    <div class="hero-grid"      aria-hidden="true"></div>
+    <div class="hero-margin"    aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <!-- Left content -->
+      <div class="hero-content">
+        <div class="hero-classify reveal">
+          <div class="stamp">Case File Active</div>
+          <span class="hero-case-ref">REF // DF-2025-KS-001</span>
         </div>
-      </div>
-      <div class="project-card fade-up">
-        <div class="project-num">// 02</div>
-        <div class="project-title">Encryption + Steganography + Face Recognition</div>
-        <div class="project-desc">A Python tool combining image steganography, encryption, and facial recognition with a complete graphical user interface for practical, accessible security-focused operations.</div>
-        <div class="tags">
-          <span class="tag accent">Python</span>
-          <span class="tag accent">Steganography</span>
-          <span class="tag">Cryptography</span>
-          <span class="tag">OpenCV</span>
-          <span class="tag">GUI</span>
+
+        <h1 class="hero-name reveal reveal-delay-1">
+          KRISHNA&nbsp;<span class="redact-wrap accent">SACHDEV<span class="redact-bar" aria-hidden="true"></span></span>
+        </h1>
+
+        <div class="hero-divider reveal reveal-delay-2" aria-hidden="true">
+          <div class="divider-line"></div>
+          <div class="divider-dot"></div>
+          <span class="divider-text">NFSU Goa · M.Sc. Digital Forensics</span>
+          <div class="divider-dot"></div>
+        </div>
+
+        <div class="hero-role reveal reveal-delay-2">
+          <span id="hero-role-text" aria-live="polite" aria-label="Current role"></span>
+        </div>
+
+        <p class="hero-bio reveal reveal-delay-3">
+          I investigate digital evidence, reconstruct security incidents, and build forensic tools that surface the truth hidden inside devices and networks.
+        </p>
+
+        <div class="hero-actions reveal reveal-delay-4">
+          <button class="btn btn-dark" data-goto="projects">Open Case Files →</button>
+          <button class="btn btn-outline" data-goto="about">About Me</button>
+          <a class="btn btn-ghost" href="/resume/KrishnaSachdev-CV.pdf" download>Resume ↓</a>
         </div>
       </div>
-      <div class="project-card fade-up">
-        <div class="project-num">// 03</div>
-        <div class="project-title">Amiphoria College Festival Website</div>
-        <div class="project-desc">Co-developed a full dynamic website for the college festival Amiphoria in collaboration with two peers, handling front-end development, design, and interactive elements.</div>
-        <div class="tags">
-          <span class="tag accent">HTML</span>
-          <span class="tag accent">CSS</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Team Project</span>
+
+      <!-- Right stats -->
+      <aside class="hero-stats-col" aria-label="Quick stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">05+</div>
+          <div class="hero-stat-label">Certifications</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">03</div>
+          <div class="hero-stat-label">Projects</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">03</div>
+          <div class="hero-stat-label">Internships</div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Terminal widget -->
+    <div id="terminal-panel" style="position:absolute;bottom:100px;right:60px;width:400px;z-index:10;" class="reveal reveal-delay-4">
+      <div class="terminal" role="region" aria-label="Interactive terminal">
+        <div class="terminal-bar">
+          <span class="t-dot t-dot-red"    aria-hidden="true"></span>
+          <span class="t-dot t-dot-yellow" aria-hidden="true"></span>
+          <span class="t-dot t-dot-green"  aria-hidden="true"></span>
+          <span class="terminal-title">visitor@portfolio:~</span>
+        </div>
+        <div id="term-body" class="terminal-body" aria-live="polite" aria-label="Terminal output"></div>
+        <form id="term-form" class="terminal-input-row" autocomplete="off">
+          <label for="term-input" class="terminal-prompt-label">visitor@ks:~$</label>
+          <input
+            id="term-input"
+            class="terminal-input"
+            type="text"
+            placeholder="type a command..."
+            spellcheck="false"
+            autocomplete="off"
+            aria-label="Terminal command input"
+            maxlength="100"
+          >
+        </form>
+      </div>
+    </div>
+
+    <div class="hero-footnote" aria-hidden="true">
+      <span class="footnote-text">NFSU GOA · SEM II · 2025</span>
+      <button class="scroll-hint" data-goto="about">
+        <span>Explore</span>
+        <span class="scroll-arrow">↓</span>
+      </button>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════════════
+     SECTION 1 — ABOUT
+════════════════════════════════════════ -->
+<div id="section-about" class="page-section">
+  <main class="section-wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">
+          <span class="sec-num">01</span>
+          <div class="sec-line" aria-hidden="true"></div>
+          <span class="sec-category">Investigator Profile</span>
+        </div>
+        <h2 class="sec-title">About <em>Me</em></h2>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1.8fr;gap:60px;align-items:start;" class="reveal">
+      <!-- Left: profile block -->
+      <div>
+        <div class="card card-accent-left" style="padding:32px;margin-bottom:20px;position:relative;">
+          <div class="card-label">Subject</div>
+          <div style="width:72px;height:72px;background:var(--ink);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:24px;font-weight:700;color:var(--paper);margin-bottom:20px;" aria-hidden="true">KS</div>
+          <div style="font-family:var(--font-serif);font-size:17px;font-weight:700;color:var(--ink);margin-bottom:4px;">Krishna Sachdev</div>
+          <div style="font-family:var(--font-mono);font-size:10px;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;">// M.Sc. Digital Forensics & Info. Security</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="tag tag-red">Digital Forensics</span>
+            <span class="tag tag-red">Incident Response</span>
+            <span class="tag tag-blue">Pen Testing</span>
+            <span class="tag">OSINT</span>
+            <span class="tag">CTF</span>
+            <span class="tag">Android Forensics</span>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);">
+          <div style="background:var(--paper);padding:20px 16px;text-align:center;">
+            <div style="font-family:var(--font-serif);font-size:28px;font-weight:700;color:var(--ink);line-height:1;" data-count="5" class="count-up">5</div>
+            <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;">Certs</div>
+          </div>
+          <div style="background:var(--paper);padding:20px 16px;text-align:center;">
+            <div style="font-family:var(--font-serif);font-size:28px;font-weight:700;color:var(--ink);line-height:1;" data-count="3" class="count-up">3</div>
+            <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;">Projects</div>
+          </div>
+          <div style="background:var(--paper);padding:20px 16px;text-align:center;">
+            <div style="font-family:var(--font-serif);font-size:28px;font-weight:700;color:var(--ink);line-height:1;" data-count="3" class="count-up">3</div>
+            <div style="font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;">Internships</div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ACHIEVEMENTS -->
-  <section id="achievements">
-    <div class="section-label">Recognition</div>
-    <h2 class="section-title">Achievements</h2>
-    <div class="ach-grid">
-      <div class="ach-item fade-up">
-        <div class="ach-icon">[G]</div>
-        <div class="ach-text">Completed <strong style="color:#fff">Google Cybersecurity Professional Certificate</strong></div>
-      </div>
-      <div class="ach-item fade-up">
-        <div class="ach-icon">[CTF]</div>
-        <div class="ach-text">Actively participated in multiple campus <strong style="color:#fff">CTF competitions</strong> &mdash; web security, cryptography, and exploitation</div>
-      </div>
-      <div class="ach-item fade-up">
-        <div class="ach-icon">[+]</div>
-        <div class="ach-text">Co-organised a <strong style="color:#fff">CTF event</strong> for Cybersecurity Month &mdash; challenge setup, coordination, and execution</div>
-      </div>
-      <div class="ach-item fade-up">
-        <div class="ach-icon">[THM]</div>
-        <div class="ach-text">Pursuing <strong style="color:#fff">TryHackMe Cybersecurity 101</strong> learning path for hands-on practical skills</div>
-      </div>
-      <div class="ach-item fade-up">
-        <div class="ach-icon">[CR]</div>
-        <div class="ach-text">Elected <strong style="color:#fff">Class Representative</strong> during BCA &mdash; liaison between faculty and student body</div>
-      </div>
-      <div class="ach-item fade-up">
-        <div class="ach-icon">[NSS]</div>
-        <div class="ach-text">Active in <strong style="color:#fff">National Service Scheme</strong> &mdash; contributing to social impact initiatives</div>
-      </div>
-      <div class="ach-item fade-up">
-        <div class="ach-icon">[TH]</div>
-        <div class="ach-text">Participated in college cultural clubs &mdash; <strong style="color:#fff">Theatre, Dance &amp; Fashion</strong> with roles in scripting, acting, and event organisation</div>
+      <!-- Right: prose -->
+      <div>
+        <blockquote class="pull-quote">
+          "Digital evidence doesn't lie — it only needs the right analyst to make it speak."
+        </blockquote>
+        <p style="font-size:15px;color:var(--ink-2);line-height:1.8;font-weight:300;margin-bottom:24px;">
+          I'm a postgraduate student at one of India's premier institutions for forensic science, building deep expertise at the intersection of digital forensics and information security. My work spans mobile device forensics, network analysis, incident response, and security tooling — always with an investigator's mindset: methodical, evidence-driven, precise.
+        </p>
+        <p style="font-size:15px;color:var(--ink-2);line-height:1.8;font-weight:300;margin-bottom:24px;">
+          Currently interning at CFAL Chandigarh (June 2026), I've also gained hands-on experience at Netsmartz in cybersecurity operations and Super Student in quality assurance. I'm an active CTF competitor and continue building open-source tools that aid forensic investigation workflows.
+        </p>
+        <p style="font-size:15px;color:var(--ink-2);line-height:1.8;font-weight:300;">
+          My undergraduate foundation in Computer Applications from Amity University (77.1%) gave me the programming and systems depth that now powers my forensic research at NFSU Goa.
+        </p>
       </div>
     </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-inner">
-      <div class="section-label" style="justify-content:center; text-align:center">Let's Connect</div>
-      <h2 class="section-title" style="text-align:center; margin-bottom:0.5rem">
-        Open to opportunities,<br/>collaborations &amp; CTF teams.
-      </h2>
-      <a href="mailto:krishsach3305&#64;gmail.com" class="contact-email">krishsach3305&#64;gmail.com</a>
-      <div class="social-links">
-        <a href="https://github.com/CS-Krishna" target="_blank" class="social-link">&#8997; GitHub</a>
-        <a href="https://www.linkedin.com/in/krishna-sachdeva-" target="_blank" class="social-link">&#8997; LinkedIn</a>
-        <a href="mailto:krishsach3305&#64;gmail.com" class="social-link">&#8997; Email</a>
+    <!-- Page nav -->
+    <div class="page-nav">
+      <button class="page-nav-btn pnav-prev">← Previous</button>
+      <span class="page-nav-indicator">02 / 08</span>
+      <button class="page-nav-btn primary pnav-next">Experience →</button>
+    </div>
+  </main>
+</div>
+
+<!-- ════════════════════════════════════════
+     SECTION 2 — EXPERIENCE
+════════════════════════════════════════ -->
+<div id="section-experience" class="page-section">
+  <main class="section-wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">
+          <span class="sec-num">02</span>
+          <div class="sec-line" aria-hidden="true"></div>
+          <span class="sec-category">Mission Log</span>
+        </div>
+        <h2 class="sec-title">Experience</h2>
       </div>
-      <div class="glow-line"></div>
-      <p style="font-family:'Share Tech Mono',monospace; font-size:0.68rem; color:#4a6274; letter-spacing:0.1em;">
-        NFSU GOA &middot; PONDA, GOA &middot; INDIA
-      </p>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-text">Krishna Sachdeva</div>
-    <div class="footer-status">
-      <div class="status-dot"></div>
-      Available for internships &amp; research roles
+    <div class="exp-scroll reveal" role="region" aria-label="Experience timeline — scroll horizontally">
+      <div class="exp-track">
+
+        <!-- CFAL - Current -->
+        <div class="exp-item is-current">
+          <div class="exp-node" aria-hidden="true"></div>
+          <div style="padding-right:var(--sp-8);">
+            <div class="exp-current-tag" aria-label="Current position">● Active</div>
+            <div class="exp-year">June 2026</div>
+            <div class="exp-role">Forensic Intern</div>
+            <div class="exp-company">CFAL — Chandigarh</div>
+            <p class="exp-desc">Centre for Forensic Analysis and Laboratory. Hands-on exposure to real-world digital forensics casework, evidence handling, and forensic examination workflows under expert supervision.</p>
+          </div>
+        </div>
+
+        <!-- Netsmartz -->
+        <div class="exp-item">
+          <div class="exp-node" aria-hidden="true"></div>
+          <div style="padding-right:var(--sp-8);">
+            <div class="exp-year">2024</div>
+            <div class="exp-role">Cybersecurity Intern</div>
+            <div class="exp-company">Netsmartz</div>
+            <p class="exp-desc">Vulnerability assessments, security monitoring, and incident analysis within a professional cybersecurity environment. Applied tools including Nmap, Wireshark, and Burp Suite in structured assessment workflows.</p>
+          </div>
+        </div>
+
+        <!-- Super Student -->
+        <div class="exp-item">
+          <div class="exp-node" aria-hidden="true"></div>
+          <div style="padding-right:var(--sp-8);">
+            <div class="exp-year">2023</div>
+            <div class="exp-role">UAT Intern</div>
+            <div class="exp-company">Super Student</div>
+            <p class="exp-desc">User acceptance testing, quality assurance processes, systematic bug identification and reporting. Developed rigorous documentation skills and an eye for software behaviour edge cases.</p>
+          </div>
+        </div>
+
+        <!-- NFSU Research -->
+        <div class="exp-item">
+          <div class="exp-node" aria-hidden="true"></div>
+          <div style="padding-right:var(--sp-8);">
+            <div class="exp-year">2024 – Present</div>
+            <div class="exp-role">M.Sc. Research</div>
+            <div class="exp-company">NFSU, Goa Campus</div>
+            <p class="exp-desc">Advanced research in digital forensics methodologies, mobile device acquisition and analysis, and cybersecurity frameworks at one of India's premier forensic science institutions.</p>
+          </div>
+        </div>
+
+        <!-- CTF -->
+        <div class="exp-item">
+          <div class="exp-node" aria-hidden="true"></div>
+          <div style="padding-right:var(--sp-8);">
+            <div class="exp-year">Ongoing</div>
+            <div class="exp-role">CTF Competitor</div>
+            <div class="exp-company">Various Platforms</div>
+            <p class="exp-desc">Active participant in Capture The Flag competitions across forensics, web security, cryptography, and reverse engineering categories. Platforms include CTFtime, HackTheBox, and TryHackMe.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </footer>
 
-  <script>
-    // Use aspect ratio to determine mobile vs desktop.
-    // Portrait (width < height) = phone/tablet = no custom cursor.
-    // Landscape with width > 1024px = desktop = show custom cursor.
-    const cursorEl = document.getElementById('cursor');
-    const ringEl   = document.getElementById('cursor-ring');
+    <!-- Page nav -->
+    <div class="page-nav">
+      <button class="page-nav-btn pnav-prev">← About</button>
+      <span class="page-nav-indicator">03 / 08</span>
+      <button class="page-nav-btn primary pnav-next">Projects →</button>
+    </div>
+  </main>
+</div>
 
-    function isMobile() {
-      return window.innerWidth <= 1024 || window.innerWidth < window.innerHeight;
-    }
+<!-- ════════════════════════════════════════
+     SECTION 3 — PROJECTS
+════════════════════════════════════════ -->
+<div id="section-projects" class="page-section">
+  <main class="section-wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">
+          <span class="sec-num">03</span>
+          <div class="sec-line" aria-hidden="true"></div>
+          <span class="sec-category">Case Files</span>
+        </div>
+        <h2 class="sec-title">Projects</h2>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-ghost proj-filter-btn is-active" data-filter="all">All</button>
+        <button class="btn btn-ghost proj-filter-btn" data-filter="forensics">Forensics</button>
+        <button class="btn btn-ghost proj-filter-btn" data-filter="security">Security</button>
+        <button class="btn btn-ghost proj-filter-btn" data-filter="web">Web</button>
+      </div>
+    </div>
 
-    if (isMobile()) {
-      if (cursorEl) cursorEl.remove();
-      if (ringEl)   ringEl.remove();
-      document.body.style.cursor = 'auto';
-    } else {
-      let mx = 0, my = 0, rx = 0, ry = 0;
-      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-      (function animate() {
-        rx += (mx - rx) * 0.18;
-        ry += (my - ry) * 0.18;
-        cursorEl.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
-        ringEl.style.transform   = `translate(${rx - 18}px, ${ry - 18}px)`;
-        requestAnimationFrame(animate);
-      })();
-    }
+    <div class="proj-grid reveal">
 
-    // Hamburger toggle
-    const ham  = document.getElementById('hamburger');
-    const menu = document.getElementById('mobileMenu');
-    ham.addEventListener('click', () => {
-      ham.classList.toggle('open');
-      menu.classList.toggle('open');
-    });
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        ham.classList.remove('open');
-        menu.classList.remove('open');
-      });
-    });
+      <!-- Android Forensics Tool - Flagship -->
+      <article class="proj-card is-featured" data-category="forensics" tabindex="0" role="article" aria-label="Android Forensics Tool - Flagship project">
+        <div class="proj-card-inner">
+          <div class="proj-case">CASE #DF-001</div>
+          <div class="proj-stamp-wrap">
+            <div class="stamp" style="transform:rotate(1.5deg);display:inline-flex;">Flagship</div>
+          </div>
+          <h3 class="proj-title">Android Forensics Tool</h3>
+          <p class="proj-desc">Custom forensic acquisition and analysis tool for Android devices. Extracts and parses artefacts including call logs, SMS messages, app data, and media metadata for investigative use. Produces structured evidence reports following chain-of-custody standards.</p>
+          <div class="proj-tools">
+            <span class="proj-tool">Python</span>
+            <span class="proj-tool">ADB</span>
+            <span class="proj-tool">SQLite</span>
+            <span class="proj-tool">Android</span>
+            <span class="proj-tool">XML Parsing</span>
+          </div>
+        </div>
+        <a class="proj-arrow" href="https://github.com/CS-Krishna" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">↗</a>
+      </article>
 
-    // Fade-up on scroll
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-up:not(.visible)').forEach(el => obs.observe(el));
+      <!-- Network Vulnerability Scanner -->
+      <article class="proj-card" data-category="security" tabindex="0" role="article" aria-label="Network Vulnerability Scanner">
+        <div class="proj-card-inner">
+          <div class="proj-case">CASE #SEC-002</div>
+          <h3 class="proj-title">Network Vulnerability Scanner</h3>
+          <p class="proj-desc">Automated scanning tool to identify open ports, running service versions, and known CVEs across networked systems. Generates structured security reports with risk-rated findings and remediation guidance.</p>
+          <div class="proj-tools">
+            <span class="proj-tool">Python</span>
+            <span class="proj-tool">Nmap</span>
+            <span class="proj-tool">CVE DB</span>
+            <span class="proj-tool">JSON</span>
+          </div>
+        </div>
+        <a class="proj-arrow" href="https://github.com/CS-Krishna" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">↗</a>
+      </article>
 
-    // Skill bar animation
-    const barObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('.skill-fill').forEach(fill => {
-            const w = fill.style.width;
-            fill.style.width = '0';
-            setTimeout(() => fill.style.width = w, 100);
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('#skills').forEach(s => barObs.observe(s));
-  </script>
+      <!-- Web Security Framework -->
+      <article class="proj-card" data-category="web" tabindex="0" role="article" aria-label="Web Security Analysis Framework">
+        <div class="proj-card-inner">
+          <div class="proj-case">CASE #WEB-003</div>
+          <h3 class="proj-title">Web Security Analysis Framework</h3>
+          <p class="proj-desc">Modular framework for web application security assessments. Covers OWASP Top 10 checks, session and cookie analysis, input sanitisation testing, and automated report generation with severity ratings.</p>
+          <div class="proj-tools">
+            <span class="proj-tool">Burp Suite</span>
+            <span class="proj-tool">Python</span>
+            <span class="proj-tool">OWASP</span>
+            <span class="proj-tool">HTTP</span>
+          </div>
+        </div>
+        <a class="proj-arrow" href="https://github.com/CS-Krishna" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">↗</a>
+      </article>
+
+    </div>
+
+    <!-- Page nav -->
+    <div class="page-nav">
+      <button class="page-nav-btn pnav-prev">← Experience</button>
+      <span class="page-nav-indicator">04 / 08</span>
+      <button class="page-nav-btn primary pnav-next">Skills →</button>
+    </div>
+  </main>
+</div>
+
+<!-- ════════════════════════════════════════
+     SECTION 4 — SKILLS
+════════════════════════════════════════ -->
+<div id="section-skills" class="page-section">
+  <main class="section-wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">
+          <span class="sec-num">04</span>
+          <div class="sec-line" aria-hidden="true"></div>
+          <span class="sec-category">Tech Matrix</span>
+        </div>
+        <h2 class="sec-title">Skills</h2>
+      </div>
+      <p style="font-size:12px;color:var(--muted);font-family:var(--font-mono);letter-spacing:0.5px;">// Click tags to highlight</p>
+    </div>
+
+    <div class="skills-groups reveal" role="list" aria-label="Skills by category">
+
+      <div class="skill-group" role="listitem">
+        <div class="sg-title">Forensics</div>
+        <div class="sg-tags">
+          <span class="tag tag-red">Android Forensics</span>
+          <span class="tag tag-red">Autopsy</span>
+          <span class="tag">FTK Imager</span>
+          <span class="tag">Cellebrite</span>
+          <span class="tag">ADB</span>
+          <span class="tag">Volatility</span>
+          <span class="tag">UFED</span>
+        </div>
+      </div>
+
+      <div class="skill-group" role="listitem">
+        <div class="sg-title">Security</div>
+        <div class="sg-tags">
+          <span class="tag tag-red">Burp Suite</span>
+          <span class="tag">Wireshark</span>
+          <span class="tag">Nmap</span>
+          <span class="tag">Metasploit</span>
+          <span class="tag">OSINT</span>
+          <span class="tag">Incident Response</span>
+        </div>
+      </div>
+
+      <div class="skill-group" role="listitem">
+        <div class="sg-title">Programming</div>
+        <div class="sg-tags">
+          <span class="tag tag-red">Python</span>
+          <span class="tag">Bash</span>
+          <span class="tag">SQL</span>
+          <span class="tag">PowerShell</span>
+          <span class="tag">Git</span>
+          <span class="tag">HTML / CSS</span>
+        </div>
+      </div>
+
+      <div class="skill-group" role="listitem">
+        <div class="sg-title">Networking</div>
+        <div class="sg-tags">
+          <span class="tag">TCP/IP</span>
+          <span class="tag">DNS</span>
+          <span class="tag tag-red">Packet Analysis</span>
+          <span class="tag">VPN</span>
+          <span class="tag">Firewall</span>
+          <span class="tag">IDS/IPS</span>
+        </div>
+      </div>
+
+      <div class="skill-group" role="listitem">
+        <div class="sg-title">Cloud & OS</div>
+        <div class="sg-tags">
+          <span class="tag tag-red">Kali Linux</span>
+          <span class="tag">Ubuntu</span>
+          <span class="tag">Windows Server</span>
+          <span class="tag">AWS</span>
+          <span class="tag">VMware</span>
+          <span class="tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="skill-group" role="listitem">
+        <div class="sg-title">Standards & Frameworks</div>
+        <div class="sg-tags">
+          <span class="tag tag-red">OWASP</span>
+          <span class="tag">NIST CSF</span>
+          <span class="tag">ISO 27001</span>
+          <span class="tag">Chain of Custody</span>
+          <span class="tag">CVE / NVD</span>
+          <span class="tag">MITRE ATT&CK</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Page nav -->
+    <div class="page-nav">
+      <button class="page-nav-btn pnav-prev">← Projects</button>
+      <span class="page-nav-indicator">05 / 08</span>
+      <button class="page-nav-btn primary pnav-next">Certifications →</button>
+    </div>
+  </main>
+</div>
+
+<!-- ════════════════════════════════════════
+     SECTION 5 — CERTIFICATIONS
+════════════════════════════════════════ -->
+<div id="section-certifications" class="page-section">
+  <main class="section-wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">
+          <span class="sec-num">05</span>
+          <div class="sec-line" aria-hidden="true"></div>
+          <span class="sec-category">Credential Vault</span>
+        </div>
+        <h2 class="sec-title">Certifications</h2>
+      </div>
+    </div>
+
+    <div class="cert-grid reveal" role="list" aria-label="Certifications">
+
+      <article class="cert-card" role="listitem" tabindex="0">
+        <div class="cert-issuer">Google</div>
+        <h3 class="cert-name">Cybersecurity Professional Certificate</h3>
+        <div class="cert-year">2023</div>
+        <a class="cert-verify" href="#" target="_blank" rel="noopener noreferrer">Verify →</a>
+      </article>
+
+      <article class="cert-card" role="listitem" tabindex="0">
+        <div class="cert-issuer">EC-Council</div>
+        <h3 class="cert-name">Certified Ethical Hacker (CEH)</h3>
+        <div class="cert-year">2024</div>
+        <a class="cert-verify" href="#" target="_blank" rel="noopener noreferrer">Verify →</a>
+      </article>
+
+      <article class="cert-card" role="listitem" tabindex="0">
+        <div class="cert-issuer">ISC²</div>
+        <h3 class="cert-name">Certified in Cybersecurity (CC)</h3>
+        <div class="cert-year">2024</div>
+        <a class="cert-verify" href="#" target="_blank" rel="noopener noreferrer">Verify →</a>
+      </article>
+
+      <article class="cert-card" role="listitem" tabindex="0">
+        <div class="cert-issuer">eLearnSecurity</div>
+        <h3 class="cert-name">Junior Penetration Tester (eJPT)</h3>
+        <div class="cert-year">2024</div>
+        <a class="cert-verify" href="#" target="_blank" rel="noopener noreferrer">Verify →</a>
+      </article>
+
+    </div>
+
+    <!-- Page nav -->
+    <div class="page-nav">
+      <button class="page-nav-btn pnav-prev">← Skills</button>
+      <span class="page-nav-indicator">06 / 08</span>
+      <button class="page-nav-btn primary pnav-next">Achievements →</button>
+    </div>
+  </main>
+</div>
+
+<!-- ════════════════════════════════════════
+     SECTION 6 — ACHIEVEMENTS
+════════════════════════════════════════ -->
+<div id="section-achievements" class="page-section">
+  <main class="section-wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">
+          <span class="sec-num">06</span>
+          <div class="sec-line" aria-hidden="true"></div>
+          <span class="sec-category">Commendations</span>
+        </div>
+        <h2 class="sec-title">Achievements</h2>
+      </div>
+    </div>
+
+    <div class="achievements-grid reveal" role="list" aria-label="Achievements">
+
+      <article class="ach-card" role="listitem" tabindex="0">
+        <div class="ach-icon" aria-hidden="true">🔍</div>
+        <h3 class="ach-title">Android Forensics Tool — Published</h3>
+        <p class="ach-desc">Developed and published a fully functional Android forensic acquisition and analysis tool. Open-sourced and documented for community use in forensic investigations.</p>
+        <span class="ach-year">2024</span>
+      </article>
+
+      <article class="ach-card" role="listitem" tabindex="0">
+        <div class="ach-icon" aria-hidden="true">🏆</div>
+        <h3 class="ach-title">Google Cybersecurity Certificate</h3>
+        <p class="ach-desc">Completed Google's professional cybersecurity certificate programme, covering threat detection, incident response, network security, and security operations fundamentals.</p>
+        <span class="ach-year">2023</span>
+      </article>
+
+      <article class="ach-card" role="listitem" tabindex="0">
+        <div class="ach-icon" aria-hidden="true">⚑</div>
+        <h3 class="ach-title">CTF Competitor — Active</h3>
+        <p class="ach-desc">Regular participant in national and international CTF competitions. Specialises in forensics, web exploitation, and OSINT challenge categories across platforms including HackTheBox and CTFtime.</p>
+        <span class="ach-year">Ongoing</span>
+      </article>
+
+      <article class="ach-card" role="listitem" tabindex="0">
+        <div class="ach-icon" aria-hidden="true">🎓</div>
+        <h3 class="ach-title">NFSU Goa — Admitted</h3>
+        <p class="ach-desc">Admitted to the M.Sc. Digital Forensics & Information Security programme at the National Forensics Science University, Goa — one of India's most prestigious forensic science institutions.</p>
+        <span class="ach-year">2024</span>
+      </article>
+
+      <article class="ach-card" role="listitem" tabindex="0">
+        <div class="ach-icon" aria-hidden="true">🛡</div>
+        <h3 class="ach-title">ISC² & EC-Council Dual Certified</h3>
+        <p class="ach-desc">Achieved dual professional certification from globally recognised security bodies: ISC² Certified in Cybersecurity (CC) and EC-Council Certified Ethical Hacker (CEH).</p>
+        <span class="ach-year">2024</span>
+      </article>
+
+      <article class="ach-card" role="listitem" tabindex="0">
+        <div class="ach-icon" aria-hidden="true">🔬</div>
+        <h3 class="ach-title">CFAL Forensic Internship</h3>
+        <p class="ach-desc">Selected for a forensic internship at the Centre for Forensic Analysis and Laboratory (CFAL), Chandigarh — gaining direct exposure to professional digital forensic examination workflows.</p>
+        <span class="ach-year">2026</span>
+      </article>
+
+    </div>
+
+    <!-- Page nav -->
+    <div class="page-nav">
+      <button class="page-nav-btn pnav-prev">← Certifications</button>
+      <span class="page-nav-indicator">07 / 08</span>
+      <button class="page-nav-btn primary pnav-next">Contact →</button>
+    </div>
+  </main>
+</div>
+
+<!-- ════════════════════════════════════════
+     SECTION 7 — CONTACT
+════════════════════════════════════════ -->
+<div id="section-contact" class="page-section">
+  <main class="section-wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow">
+          <span class="sec-num">07</span>
+          <div class="sec-line" aria-hidden="true"></div>
+          <span class="sec-category">Secure Comms</span>
+        </div>
+        <h2 class="sec-title">Get in <em>Touch</em></h2>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start;" class="reveal">
+
+      <!-- Form -->
+      <div>
+        <p style="font-family:var(--font-serif);font-size:18px;font-weight:400;font-style:italic;color:var(--ink-2);line-height:1.6;margin-bottom:36px;">
+          Open to internships, research collaborations, and digital forensics consulting opportunities.
+        </p>
+
+        <form id="contact-form" novalidate>
+          <!-- Honeypot (hidden from real users) -->
+          <div class="hp-field" aria-hidden="true">
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="f-name">Name</label>
+            <input class="form-input" id="f-name" name="name" type="text" placeholder="Your full name" maxlength="100" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="f-email">Email</label>
+            <input class="form-input" id="f-email" name="email" type="email" placeholder="your@email.com" maxlength="254" required autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="f-message">Message</label>
+            <textarea class="form-input" id="f-message" name="message" placeholder="Begin your message..." rows="5" maxlength="2000" required></textarea>
+          </div>
+
+          <button id="contact-submit" class="btn btn-dark btn-full" type="submit">Send Message →</button>
+          <div id="form-message" class="form-message" role="alert" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <!-- Channels -->
+      <div>
+        <nav class="contact-channels" aria-label="Contact channels">
+          <a class="ch-item" href="mailto:krishna@sachdevakrishna.me" aria-label="Send email">
+            <span class="ch-num" aria-hidden="true">01</span>
+            <span class="ch-label">Email</span>
+            <span class="ch-value">krishna@sachdevakrishna.me</span>
+            <span class="ch-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="ch-item" href="https://github.com/CS-Krishna" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile">
+            <span class="ch-num" aria-hidden="true">02</span>
+            <span class="ch-label">GitHub</span>
+            <span class="ch-value">github.com/CS-Krishna</span>
+            <span class="ch-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="ch-item" href="https://linkedin.com/in/krishna-sachdev" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile">
+            <span class="ch-num" aria-hidden="true">03</span>
+            <span class="ch-label">LinkedIn</span>
+            <span class="ch-value">linkedin.com/in/krishna-sachdev</span>
+            <span class="ch-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="ch-item" href="/resume/KrishnaSachdev-CV.pdf" download aria-label="Download resume">
+            <span class="ch-num" aria-hidden="true">04</span>
+            <span class="ch-label">Resume</span>
+            <span class="ch-value">Download CV — PDF</span>
+            <span class="ch-arrow" aria-hidden="true">↓</span>
+          </a>
+          <a class="ch-item" href="https://sachdevakrishna.me" aria-label="Visit portfolio website">
+            <span class="ch-num" aria-hidden="true">05</span>
+            <span class="ch-label">Portfolio</span>
+            <span class="ch-value">sachdevakrishna.me</span>
+            <span class="ch-arrow" aria-hidden="true">→</span>
+          </a>
+        </nav>
+
+        <!-- Status card -->
+        <div style="margin-top:20px;border:1px solid var(--rule);padding:24px;background:var(--paper-2);position:relative;">
+          <div class="card-label" style="background:var(--paper-2);">Availability</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 10px rgba(34,197,94,0.6);" aria-hidden="true"></div>
+            <span style="font-family:var(--font-mono);font-size:11px;color:var(--ink);letter-spacing:1px;">AVAILABLE FOR OPPORTUNITIES</span>
+          </div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.6;font-weight:300;">Currently open to internships, part-time research collaborations, and freelance forensic consulting engagements.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer style="margin-top:var(--sp-16);padding-top:var(--sp-8);border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-4);">
+      <p style="font-family:var(--font-serif);font-size:13px;color:var(--muted);font-style:italic;">"The quieter you become, the more you are able to hear."</p>
+      <p style="font-family:var(--font-mono);font-size:10px;color:var(--muted-2);letter-spacing:1px;">© 2025 Krishna Sachdev · All Rights Reserved</p>
+    </footer>
+
+    <!-- Page nav -->
+    <div class="page-nav">
+      <button class="page-nav-btn pnav-prev">← Achievements</button>
+      <span class="page-nav-indicator">08 / 08</span>
+      <button class="page-nav-btn" data-goto="hero">↑ Back to Top</button>
+    </div>
+  </main>
+</div>
+
+<!-- ════════ SCRIPTS ════════ -->
+<script src="/js/main.js"       defer></script>
+<script src="/js/typewriter.js" defer></script>
+<script src="/js/terminal.js"   defer></script>
+<script src="/js/contact.js"    defer></script>
+
 </body>
 </html>
