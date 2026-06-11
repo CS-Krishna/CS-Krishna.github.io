@@ -36,6 +36,9 @@
 
   <!-- Favicon placeholder -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+
+  <!-- Hide sections before JS loads to prevent flash -->
+  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.page-section').forEach(function(el){el.style.display='none';el.style.opacity='0';});});</script>
 </head>
 <body>
 
@@ -836,10 +839,6 @@
 </div>
 
 <!-- ════════ SCRIPTS ════════ -->
-<!-- Hide all sections immediately so nothing flashes before JS runs -->
-<style>
-  .page-section { display: none !important; opacity: 0; }
-</style>
 <script src="/js/main.js"       defer></script>
 <script src="/js/typewriter.js" defer></script>
 <script src="/js/terminal.js"   defer></script>
