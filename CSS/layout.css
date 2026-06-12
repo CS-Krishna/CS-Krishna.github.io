@@ -548,3 +548,70 @@
   .drawer { width: 100%; }
   .sec-head { flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
 }
+
+/* ════════════════════════════════════════════════
+   MOBILE — full section responsive
+   ════════════════════════════════════════════════ */
+
+/* Section wrap tighter on small screens */
+@media (max-width: 1024px) {
+  .section-wrap { padding: var(--sp-16) var(--sp-10); padding-top: calc(var(--sp-16) + 60px); }
+  .page-nav     { padding: var(--sp-6) var(--sp-10); }
+}
+
+@media (max-width: 640px) {
+  .section-wrap { padding: var(--sp-8) var(--sp-5); padding-top: calc(var(--sp-8) + 60px); }
+  .page-nav     { padding: var(--sp-5) var(--sp-5); flex-wrap: wrap; gap: var(--sp-3); }
+  .page-nav-indicator { order: -1; width: 100%; text-align: center; }
+  .sec-title    { font-size: clamp(24px, 7vw, 36px); }
+
+  /* About grid → single column */
+  #section-about  .section-wrap > div[style*="grid"] { display: block !important; }
+  #section-about  .section-wrap > div > div:first-child { margin-bottom: var(--sp-8); }
+
+  /* Contact grid → single column */
+  #section-contact .section-wrap > div[style*="grid"] { display: block !important; }
+  #section-contact .section-wrap > div > div:first-child { margin-bottom: var(--sp-8); }
+
+  /* Drawer full width */
+  .drawer { width: 100%; }
+
+  /* Nav — hide text links */
+  .nav-link { display: none; }
+  .nav-btn  { display: none; }
+  .topnav   { padding: 0 var(--sp-4); }
+}
+
+/* Proj grid responsive */
+@media (max-width: 900px) {
+  .proj-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 560px) {
+  .proj-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Cert grid responsive */
+@media (max-width: 640px) {
+  .cert-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Skills grid responsive */
+@media (max-width: 900px) {
+  .skills-groups { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 560px) {
+  .skills-groups { grid-template-columns: 1fr !important; }
+}
+
+/* Achievements grid responsive */
+@media (max-width: 900px) {
+  .achievements-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 560px) {
+  .achievements-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Experience scroll on mobile */
+@media (max-width: 640px) {
+  .exp-item { width: 220px; }
+}
