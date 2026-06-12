@@ -7,9 +7,9 @@
   min-height: 100vh;
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   border-bottom: 1px solid var(--rule);
 }
 
@@ -239,18 +239,21 @@
   gap: var(--sp-4);
   flex-shrink: 0;
   width: 380px;
+  min-width: 0;
 }
 
 .hero-stats-col {
   display: flex;
   flex-direction: row;
   gap: var(--sp-2);
+  width: 100%;
 }
 .hero-stat {
   flex: 1;
+  min-width: 0;
   background: var(--paper-2);
   border: 1px solid var(--rule);
-  padding: 14px 16px;
+  padding: 14px 10px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -268,8 +271,9 @@
   color: var(--ink); line-height: 1; margin-bottom: 3px;
 }
 .hero-stat-label {
-  font-family: var(--font-mono); font-size: 8px;
-  color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase;
+  font-family: var(--font-mono); font-size: 7.5px;
+  color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 
 #terminal-panel { width: 100%; }
@@ -277,31 +281,99 @@
 /* ─── DESKTOP hero grid ─── */
 .hero-inner {
   grid-template-columns: 1fr 380px;
+  align-items: start;
+  padding-top: 80px;
 }
 
-/* ─── TABLET (≤1100px): stack right col below ─── */
+/* ─── TABLET (900px–1100px) ─── */
 @media (max-width: 1100px) {
   .hero-inner {
     grid-template-columns: 1fr;
-    padding: 90px var(--sp-10) 60px;
+    padding: 90px var(--sp-8) 60px;
+    gap: var(--sp-8);
   }
-  .hero-right-col { width: 100%; flex-direction: column; }
-  .hero-stats-col { flex-direction: row; }
-  .hero-stat { text-align: center; }
-  #terminal-panel { max-width: 520px; }
+  .hero-right-col {
+    width: 100%;
+    max-width: 560px;
+  }
+  #terminal-panel { max-width: 100%; }
 }
 
 /* ─── PHONE (≤640px) ─── */
 @media (max-width: 640px) {
-  .hero-inner { padding: 80px var(--sp-5) 60px; gap: var(--sp-5); }
-  .hero-name  { font-size: clamp(36px, 10vw, 52px); letter-spacing: -1px; }
-  .hero-bio   { font-size: 13.5px; }
-  .hero-actions { gap: var(--sp-2); }
-  .hero-actions .btn { font-size: 12px; padding: 10px 16px; }
-  .hero-stat-num { font-size: 22px; }
-  .hero-stat { padding: 10px 12px; }
-  .hero-footnote { padding: 0 var(--sp-5); bottom: 16px; }
-  .hero-classify { flex-wrap: wrap; gap: var(--sp-2); }
+  /* Hero wrapper */
+  .hero-section { min-height: auto; padding-bottom: 40px; }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    padding: 80px var(--sp-4) 40px;
+    gap: var(--sp-6);
+  }
+
+  /* Name — scale to fit single line */
+  .hero-name {
+    font-size: clamp(28px, 8.5vw, 44px);
+    letter-spacing: -1px;
+    line-height: 0.95;
+    word-break: break-word;
+  }
+
+  /* Typewriter — prevent clip */
+  .hero-role {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  /* Bio */
+  .hero-bio {
+    font-size: 14px;
+    line-height: 1.65;
+    max-width: 100%;
+  }
+
+  /* Classify stamp row */
+  .hero-classify {
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-5);
+  }
   .hero-case-ref { font-size: 9px; }
-  .stamp { font-size: 8px; padding: 4px 10px; }
+  .stamp { font-size: 8px; padding: 4px 9px; letter-spacing: 1.5px; }
+
+  /* Divider */
+  .hero-divider { gap: var(--sp-3); }
+  .divider-line { flex: 0 0 40px; }
+  .divider-text { font-size: 9px; letter-spacing: 1.5px; }
+
+  /* Action buttons — stack on very small screens */
+  .hero-actions {
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+  .hero-actions .btn {
+    font-size: 12px;
+    padding: 10px 16px;
+  }
+
+  /* Right column — full width */
+  .hero-right-col {
+    width: 100%;
+    gap: var(--sp-3);
+  }
+
+  /* Stats row */
+  .hero-stats-col { gap: var(--sp-2); }
+  .hero-stat { padding: 10px 8px; }
+  .hero-stat-num { font-size: 22px; }
+  .hero-stat-label { font-size: 7px; letter-spacing: 1px; }
+
+  /* Terminal — compact on mobile */
+  .terminal-body { min-height: 140px; max-height: 200px; font-size: 11px; }
+
+  /* Hide footnote — no room */
+  .hero-footnote { display: none; }
+  .hero-margin   { display: none; }
 }

@@ -1,8 +1,7 @@
 /* ════════════════════════════════════════════════
    base.css — tokens, reset, typography
+   Fonts loaded via <link rel="preload"> in index.html
    ════════════════════════════════════════════════ */
-
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap');
 
 /* ─── TOKENS ─── */
 :root {
@@ -139,4 +138,10 @@ body::before {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ─── Mobile: restore default cursor for touch devices ─── */
+@media (pointer: coarse) {
+  body { cursor: auto; }
+  #cursor-dot, #cursor-ring { display: none; }
 }
