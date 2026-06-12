@@ -58,7 +58,7 @@
         { t: 'out',  v: '  [2026-06]  Central Forensics Science Laboratory, Chandigarh     — Forensic Intern  [ ACTIVE ]' },
         { t: 'out',  v: '  [2024]     Netsmartz            — Cybersecurity Intern' },
         { t: 'out',  v: '  [2023]     Super Student        — UAT Intern' },
-        { t: 'out',  v: '  [ongoing]  CTF Platforms        — Competitor' },
+        { t: 'out',  v: '  [2025-27]  NFSU Goa             — M.Sc. DFIS           [ ACTIVE ]' },
         { t: 'out',  v: '' },
         { t: 'ok',   v: '  Navigating...' },
       ];
@@ -82,7 +82,7 @@
       return [
         { t: 'info', v: '// TECHNOLOGY MATRIX' },
         { t: 'out',  v: '' },
-        { t: 'out',  v: '  Forensics   : Autopsy · FTK · ADB · Cellebrite · Volatility' },
+        { t: 'out',  v: '  Forensics   : Autopsy · FTK · Cellebrite · Volatility' },
         { t: 'out',  v: '  Security    : Burp Suite · Wireshark · Nmap · Metasploit' },
         { t: 'out',  v: '  Programming : Python · Bash · SQL · PowerShell' },
         { t: 'out',  v: '  Networking  : TCP/IP · Packet Analysis · DNS · Firewall' },
