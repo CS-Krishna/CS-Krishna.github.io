@@ -41,7 +41,7 @@
   const loader = document.getElementById('loader');
   if (!loader) return;
   // Dismiss after animation finishes
-  setTimeout(() => loader.classList.add('is-done'), 1600);
+  setTimeout(() => loader.classList.add('is-done'), 900);
 })();
 
 /* ─── DRAWER ─── */
