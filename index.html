@@ -173,11 +173,11 @@
     <div class="hero-margin"    aria-hidden="true"></div>
 
     <div class="hero-inner">
-      <!-- Left content -->
+      <!-- LEFT: main content -->
       <div class="hero-content">
         <div class="hero-classify reveal">
           <div class="stamp">Case File Active</div>
-          <span class="hero-case-ref">REF // DF-2025-KS-001</span>
+          <span class="hero-case-ref">REF // DF-2026-KS-001</span>
         </div>
 
         <h1 class="hero-name reveal reveal-delay-1">
@@ -187,7 +187,7 @@
         <div class="hero-divider reveal reveal-delay-2" aria-hidden="true">
           <div class="divider-line"></div>
           <div class="divider-dot"></div>
-          <span class="divider-text">NFSU Goa · M.Sc. Digital Forensics</span>
+          <span class="divider-text">NFSU Goa · M.Sc. DFIS</span>
           <div class="divider-dot"></div>
         </div>
 
@@ -202,55 +202,58 @@
         <div class="hero-actions reveal reveal-delay-4">
           <button class="btn btn-dark" data-goto="projects">Open Case Files →</button>
           <button class="btn btn-outline" data-goto="about">About Me</button>
-          <a class="btn btn-ghost" href="/resume/KrishnaSachdev-CV.pdf" download>Resume ↓</a>
+          <a class="btn btn-ghost" href="/Resume/KrishnaSachdev-CV.pdf" download>Resume ↓</a>
         </div>
       </div>
 
-      <!-- Right stats -->
-      <aside class="hero-stats-col" aria-label="Quick stats">
-        <div class="hero-stat">
-          <div class="hero-stat-num">01</div>
-          <div class="hero-stat-label">Certification</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">03</div>
-          <div class="hero-stat-label">Projects</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">03</div>
-          <div class="hero-stat-label">Internships</div>
-        </div>
-      </aside>
-    </div>
+      <!-- RIGHT: stats + terminal stacked -->
+      <div class="hero-right-col reveal reveal-delay-3">
+        <!-- Stats -->
+        <aside class="hero-stats-col" aria-label="Quick stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">01</div>
+            <div class="hero-stat-label">Certification</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">03</div>
+            <div class="hero-stat-label">Projects</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">03</div>
+            <div class="hero-stat-label">Internships</div>
+          </div>
+        </aside>
 
-    <!-- Terminal widget -->
-    <div id="terminal-panel" style="position:absolute;bottom:100px;right:60px;width:400px;z-index:10;" class="reveal reveal-delay-4">
-      <div class="terminal" role="region" aria-label="Interactive terminal">
-        <div class="terminal-bar">
-          <span class="t-dot t-dot-red"    aria-hidden="true"></span>
-          <span class="t-dot t-dot-yellow" aria-hidden="true"></span>
-          <span class="t-dot t-dot-green"  aria-hidden="true"></span>
-          <span class="terminal-title">visitor@portfolio:~</span>
+        <!-- Terminal -->
+        <div id="terminal-panel">
+          <div class="terminal" role="region" aria-label="Interactive terminal">
+            <div class="terminal-bar">
+              <span class="t-dot t-dot-red"    aria-hidden="true"></span>
+              <span class="t-dot t-dot-yellow" aria-hidden="true"></span>
+              <span class="t-dot t-dot-green"  aria-hidden="true"></span>
+              <span class="terminal-title">visitor@portfolio:~</span>
+            </div>
+            <div id="term-body" class="terminal-body" aria-live="polite" aria-label="Terminal output"></div>
+            <form id="term-form" class="terminal-input-row" autocomplete="off">
+              <label for="term-input" class="terminal-prompt-label">visitor@ks:~$</label>
+              <input
+                id="term-input"
+                class="terminal-input"
+                type="text"
+                placeholder="type a command..."
+                spellcheck="false"
+                autocomplete="off"
+                aria-label="Terminal command input"
+                maxlength="100"
+              >
+            </form>
+          </div>
         </div>
-        <div id="term-body" class="terminal-body" aria-live="polite" aria-label="Terminal output"></div>
-        <form id="term-form" class="terminal-input-row" autocomplete="off">
-          <label for="term-input" class="terminal-prompt-label">visitor@ks:~$</label>
-          <input
-            id="term-input"
-            class="terminal-input"
-            type="text"
-            placeholder="type a command..."
-            spellcheck="false"
-            autocomplete="off"
-            aria-label="Terminal command input"
-            maxlength="100"
-          >
-        </form>
       </div>
     </div>
 
     <div class="hero-footnote" aria-hidden="true">
-      <span class="footnote-text">NFSU GOA · NFSU GOA · 2026</span>
+      <span class="footnote-text">NFSU GOA · 2026</span>
       <button class="scroll-hint" data-goto="about">
         <span>Explore</span>
         <span class="scroll-arrow">↓</span>
@@ -363,7 +366,7 @@
             <div class="exp-year">June 2026</div>
             <div class="exp-role">Forensic Intern</div>
             <div class="exp-company">Central Forensics Science Laboratory — Chandigarh</div>
-            <p class="exp-desc">Centre for Forensic Analysis and Laboratory. Hands-on exposure to real-world digital forensics casework, evidence handling, and forensic examination workflows under expert supervision.</p>
+            <p class="exp-desc">Central Forensic Science Laboratory — gaining hands-on exposure to real-world digital forensics casework, evidence acquisition, examination workflows, and forensic reporting under expert supervision.</p>
           </div>
         </div>
 
