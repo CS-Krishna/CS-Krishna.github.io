@@ -11,7 +11,7 @@
 (function initContactForm() {
   // ↓ Replace with your Formspree endpoint after signing up
   // e.g. 'https://formspree.io/f/xabc1234'
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqeoydpo';
 
   const form      = document.getElementById('contact-form');
   const msgEl     = document.getElementById('form-message');
