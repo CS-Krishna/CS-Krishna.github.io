@@ -28,6 +28,19 @@
   <meta http-equiv="Referrer-Policy"        content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy"     content="camera=(), microphone=(), geolocation=()">
 
+  <!-- Preconnect to Google Fonts — starts TCP handshake immediately -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts — non-render-blocking: loads async, swaps in when ready -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap">
+  </noscript>
+
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/CSS/base.css">
   <link rel="stylesheet" href="/CSS/layout.css">
@@ -36,9 +49,6 @@
 
   <!-- Favicon placeholder -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
-
-  <!-- Hide sections before JS loads to prevent flash -->
-  <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.page-section').forEach(function(el){el.style.display='none';el.style.opacity='0';});});</script>
 </head>
 <body>
 
@@ -842,10 +852,10 @@
 </div>
 
 <!-- ════════ SCRIPTS ════════ -->
-<script src="/js/main.js"       defer></script>
-<script src="/js/typewriter.js" defer></script>
-<script src="/js/terminal.js"   defer></script>
-<script src="/js/contact.js"    defer></script>
+<script src="/js/main.js"></script>
+<script src="/js/typewriter.js"></script>
+<script src="/js/terminal.js"></script>
+<script src="/js/contact.js"></script>
 
 </body>
 </html>
