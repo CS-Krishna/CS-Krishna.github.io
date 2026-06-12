@@ -10,37 +10,29 @@
   if (!dot || !ring || window.matchMedia('(pointer: coarse)').matches) return;
 
   let mx = -100, my = -100, rx = -100, ry = -100;
-
   document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 
   (function animate() {
-    dot.style.left  = mx + 'px';
-    dot.style.top   = my + 'px';
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
+    dot.style.left  = mx + 'px'; dot.style.top   = my + 'px';
+    rx += (mx - rx) * 0.12;     ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top  = ry + 'px';
     requestAnimationFrame(animate);
   })();
 
-  const hoverSel = 'a, button, [role="button"], input, textarea, .proj-card, .cert-card, .ach-card, .drawer-item, .ch-item, .tag, .sg-tag';
-  document.addEventListener('mouseover', e => {
-    if (e.target.closest(hoverSel)) document.body.classList.add('cursor-hover');
-  });
-  document.addEventListener('mouseout', e => {
-    if (e.target.closest(hoverSel)) document.body.classList.remove('cursor-hover');
-  });
+  const hoverSel = 'a,button,[role="button"],input,textarea,.proj-card,.cert-card,.ach-card,.drawer-item,.ch-item,.tag,.sg-tag';
+  document.addEventListener('mouseover', e => { if (e.target.closest(hoverSel)) document.body.classList.add('cursor-hover'); });
+  document.addEventListener('mouseout',  e => { if (e.target.closest(hoverSel)) document.body.classList.remove('cursor-hover'); });
   document.addEventListener('mousedown', () => document.body.classList.add('cursor-click'));
   document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-click'));
-  document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
-  document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
+  document.addEventListener('mouseleave',() => { dot.style.opacity='0'; ring.style.opacity='0'; });
+  document.addEventListener('mouseenter',() => { dot.style.opacity='1'; ring.style.opacity='1'; });
 })();
 
 /* ─── LOADING SCREEN ─── */
 (function initLoader() {
   const loader = document.getElementById('loader');
   if (!loader) return;
-  // Dismiss after animation finishes
+  // Dismiss after bar animation (700ms) + small buffer
   setTimeout(() => loader.classList.add('is-done'), 900);
 })();
 
@@ -68,15 +60,10 @@
     hamburger.setAttribute('aria-expanded', 'false');
   }
 
-  hamburger.addEventListener('click', () =>
-    drawer.classList.contains('is-open') ? close() : open()
-  );
+  hamburger.addEventListener('click', () => drawer.classList.contains('is-open') ? close() : open());
   overlay.addEventListener('click', close);
   closeBtn?.addEventListener('click', close);
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
-  });
-  // Close on nav item click (nav handler fires first, then this)
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('is-open')) close(); });
   drawer.querySelectorAll('.drawer-item[data-section]').forEach(item => {
     item.addEventListener('click', () => setTimeout(close, 80));
   });
@@ -84,27 +71,20 @@
 
 /* ─── PAGE NAVIGATION ─── */
 (function initPageNav() {
-  const SECTIONS = [
-    'hero', 'about', 'experience', 'projects',
-    'skills', 'certifications', 'achievements', 'contact'
-  ];
-  const TOTAL = SECTIONS.length;
-  let current = 0;
+  const SECTIONS = ['hero','about','experience','projects','skills','certifications','achievements','contact'];
+  const TOTAL    = SECTIONS.length;
+  let current    = 0;
 
-  /* Hide all sections initially via JS (CSS sets display:none as default) */
-  SECTIONS.forEach(id => {
-    const el = document.getElementById('section-' + id);
-    if (el) el.style.display = 'none';
-  });
+  // CSS already hides all .page-section via display:none
+  // We only need to manage classes — no style manipulation
 
-  function goTo(index, instant = false) {
+  function goTo(index, instant) {
     if (index < 0 || index >= TOTAL) return;
 
-    // Hide current
+    // Hide old
     const oldEl = document.getElementById('section-' + SECTIONS[current]);
     if (oldEl) {
-      oldEl.style.opacity = '0';
-      setTimeout(() => { oldEl.style.display = 'none'; }, instant ? 0 : 280);
+      oldEl.classList.remove('is-active', 'is-entering');
     }
 
     current = index;
@@ -113,11 +93,14 @@
     const newEl = document.getElementById('section-' + SECTIONS[current]);
     if (!newEl) return;
 
-    newEl.style.display = 'block';
-    newEl.style.opacity = '0';
-    void newEl.offsetHeight; // reflow
-    newEl.style.transition = instant ? 'none' : 'opacity 0.35s ease';
-    newEl.style.opacity = '1';
+    newEl.classList.add('is-active');
+
+    // Trigger opacity transition on next frame
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        newEl.classList.add('is-entering');
+      });
+    });
 
     window.scrollTo({ top: 0, behavior: instant ? 'auto' : 'smooth' });
     updateNav();
@@ -126,21 +109,15 @@
 
   function updateNav() {
     const id = SECTIONS[current];
-    // Drawer
     document.querySelectorAll('.drawer-item[data-section]').forEach(el => {
       el.classList.toggle('is-active', el.dataset.section === id);
     });
-    // Top nav
     document.querySelectorAll('.nav-link[data-section]').forEach(el => {
       el.classList.toggle('is-current', el.dataset.section === id);
     });
-    // Indicators
     document.querySelectorAll('.page-nav-indicator').forEach(el => {
-      el.textContent =
-        String(current + 1).padStart(2, '0') + ' / ' +
-        String(TOTAL).padStart(2, '0');
+      el.textContent = String(current + 1).padStart(2,'0') + ' / ' + String(TOTAL).padStart(2,'0');
     });
-    // Disable prev/next at boundaries
     document.querySelectorAll('.pnav-prev').forEach(btn => { btn.disabled = current === 0; });
     document.querySelectorAll('.pnav-next').forEach(btn => { btn.disabled = current === TOTAL - 1; });
   }
@@ -157,31 +134,26 @@
     if (idx !== -1) goTo(idx);
   }
 
-  /* Wire up: drawer items */
+  // Wire up drawer
   document.querySelectorAll('.drawer-item[data-section]').forEach(el => {
     el.addEventListener('click', () => navToId(el.dataset.section));
   });
-
-  /* Wire up: top nav links */
+  // Wire up top nav
   document.querySelectorAll('.nav-link[data-section]').forEach(el => {
     el.addEventListener('click', () => navToId(el.dataset.section));
   });
-
-  /* Wire up: logo → hero */
+  // Logo → hero
   document.querySelector('.nav-logo')?.addEventListener('click', () => goTo(0));
-
-  /* Wire up: [data-goto] buttons anywhere */
+  // data-goto buttons
   document.querySelectorAll('[data-goto]').forEach(el => {
     el.addEventListener('click', () => navToId(el.dataset.goto));
   });
-
-  /* Wire up: prev/next page nav buttons */
+  // Prev / next
   document.addEventListener('click', e => {
     if (e.target.closest('.pnav-prev')) goTo(current - 1);
     if (e.target.closest('.pnav-next')) goTo(current + 1);
   });
-
-  /* Keyboard: arrow keys (only when not in an input) */
+  // Arrow keys
   document.addEventListener('keydown', e => {
     const tag = document.activeElement?.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
@@ -189,10 +161,10 @@
     if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { e.preventDefault(); goTo(current - 1); }
   });
 
-  /* Expose globally so terminal.js can call it */
+  // Expose for terminal.js
   window.portfolioNav = { goTo, navToId, SECTIONS };
 
-  /* Init: show hero immediately */
+  // Show hero immediately on load — no timeout, no wait
   goTo(0, true);
 })();
 
@@ -202,36 +174,39 @@
     const start = performance.now();
     (function step(now) {
       const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(eased * target) + (el.dataset.suffix || '');
+      const v = Math.round((1 - Math.pow(1 - p, 3)) * target);
+      el.textContent = v + (el.dataset.suffix || '');
       if (p < 1) requestAnimationFrame(step);
     })(start);
   }
-
-  const aboutSection = document.getElementById('section-about');
-  if (!aboutSection) return;
-
+  const about = document.getElementById('section-about');
+  if (!about) return;
   let ran = false;
-  const obs = new IntersectionObserver(entries => {
+  new IntersectionObserver(entries => {
     if (entries[0].isIntersecting && !ran) {
       ran = true;
-      aboutSection.querySelectorAll('[data-count]').forEach(el => {
-        countUp(el, parseInt(el.dataset.count, 10), 1200);
-      });
+      about.querySelectorAll('[data-count]').forEach(el => countUp(el, parseInt(el.dataset.count), 1200));
     }
-  }, { threshold: 0.2 });
-  obs.observe(aboutSection);
+  }, { threshold: 0.2 }).observe(about);
 })();
 
-/* ─── SCROLL REVEAL (within a page) ─── */
+/* ─── SCROLL REVEAL ─── */
 (function initReveal() {
+  new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+  }, { threshold: 0.08 }).observe.bind(
+    new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+    }, { threshold: 0.08 })
+  );
+  // Simple approach
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 })();
 
-/* ─── DRAG-SCROLL (Experience timeline) ─── */
+/* ─── DRAG SCROLL (Experience) ─── */
 (function initDragScroll() {
   document.querySelectorAll('.exp-scroll').forEach(wrap => {
     let down = false, startX, left;
@@ -255,16 +230,14 @@
       btns.forEach(b => b.classList.remove('is-active'));
       btn.classList.add('is-active');
       const f = btn.dataset.filter;
-      cards.forEach(c => {
-        c.style.display = (f === 'all' || c.dataset.category === f) ? '' : 'none';
-      });
+      cards.forEach(c => { c.style.display = (f === 'all' || c.dataset.category === f) ? '' : 'none'; });
     });
   });
 })();
 
 /* ─── SKILLS TAG TOGGLE ─── */
 (function initSkillToggle() {
-  document.querySelectorAll('.sg-tag').forEach(tag => {
+  document.querySelectorAll('.sg-tag, .tag').forEach(tag => {
     tag.addEventListener('click', () => tag.classList.toggle('is-active'));
   });
 })();
