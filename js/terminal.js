@@ -33,7 +33,7 @@
       { t: 'info', v: '// SUBJECT IDENTIFICATION' },
       { t: 'out',  v: '' },
       { t: 'out',  v: '  Name        :  Krishna Sachdeva' },
-      { t: 'out',  v: '  Role        :  Digital Forensics Analyst' },
+      { t: 'out',  v: '  Role        :  Student' },
       { t: 'out',  v: '  Institution :  NFSU Goa — M.Sc. DFIS' },
       { t: 'out',  v: '  Status      :  Available for Opportunities' },
       { t: 'out',  v: '' },
