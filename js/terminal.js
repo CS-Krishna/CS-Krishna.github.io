@@ -68,9 +68,9 @@
       return [
         { t: 'info', v: '// CASE FILES LOADED' },
         { t: 'out',  v: '' },
-        { t: 'out',  v: '  [DF-001]   Android Forensics Tool       ★ FLAGSHIP' },
-        { t: 'out',  v: '  [SEC-002]  Network Vulnerability Scanner' },
-        { t: 'out',  v: '  [WEB-003]  Web Security Framework' },
+        { t: 'out',  v: '  [DF-001]   Android Forensics Tool' },
+        { t: 'out',  v: '  [SEC-002]  Encryption, Steganography & Face Recognition' },
+        { t: 'out',  v: '  [ML-003]  Movie Recommendation System with Explainable AI' },
         { t: 'out',  v: '' },
         { t: 'ok',   v: '  Navigating...' },
       ];
@@ -98,9 +98,7 @@
         { t: 'info', v: '// CREDENTIAL VAULT' },
         { t: 'out',  v: '' },
         { t: 'out',  v: '  Google      — Cybersecurity Professional Certificate  [2023]' },
-        { t: 'out',  v: '  EC-Council  — Certified Ethical Hacker (CEH)          [2024]' },
-        { t: 'out',  v: '  ISC²        — Certified in Cybersecurity (CC)         [2024]' },
-        { t: 'out',  v: '  eLearnsec   — Junior Penetration Tester (eJPT)        [2024]' },
+        { t: 'out',  v: '  TryHackMe  — Cybersecurity 101 Learning Path          [ACTIVE]' },
         { t: 'out',  v: '' },
         { t: 'ok',   v: '  Navigating...' },
       ];
@@ -114,7 +112,6 @@
         { t: 'out',  v: '  ✦  Android Forensics Tool — Published' },
         { t: 'out',  v: '  ✦  CFSL Forensic Internship — June 2026' },
         { t: 'out',  v: '  ✦  Google Cybersecurity Certificate' },
-        { t: 'out',  v: '  ✦  ISC² & EC-Council Dual Certified' },
         { t: 'out',  v: '  ✦  Active CTF Competitor' },
         { t: 'out',  v: '  ✦  NFSU Goa — M.Sc. Admission' },
         { t: 'out',  v: '' },
