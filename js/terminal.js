@@ -32,10 +32,9 @@
     whoami: () => [
       { t: 'info', v: '// SUBJECT IDENTIFICATION' },
       { t: 'out',  v: '' },
-      { t: 'out',  v: '  Name        :  Krishna Sachdevaa' },
+      { t: 'out',  v: '  Name        :  Krishna Sachdeva' },
       { t: 'out',  v: '  Role        :  Digital Forensics Analyst' },
       { t: 'out',  v: '  Institution :  NFSU Goa — M.Sc. DFIS' },
-      { t: 'out',  v: '  Internship  :  Central Forensics Science Laboratory, Chandigarh (June 2026) [ ACTIVE ]' },
       { t: 'out',  v: '  Status      :  Available for Opportunities' },
       { t: 'out',  v: '' },
       { t: 'ok',   v: '  [VERIFIED] Subject record authenticated.' },
