@@ -644,18 +644,29 @@
 
     <div class="cert-grid reveal" role="list" aria-label="Certifications" style="grid-template-columns: repeat(2, 1fr);">
 
-      <article class="cert-card" role="listitem" tabindex="0">
+      <article class="cert-card" role="listitem" tabindex="0"
+        data-cert-issuer="Google"
+        data-cert-title="Cybersecurity Professional Certificate"
+        data-cert-year="Completed"
+        data-cert-ext="https://www.coursera.org/professional-certificates/google-cybersecurity"
+        data-cert-img="/certs/google-cybersecurity.jpg">
+	data-cert-pdf="/certs/Cyber_Security_All.pdf"
         <div class="cert-issuer">Google</div>
         <h3 class="cert-name">Cybersecurity Professional Certificate</h3>
         <div class="cert-year">Completed</div>
-        <a class="cert-verify" href="https://www.coursera.org/professional-certificates/google-cybersecurity" target="_blank" rel="noopener noreferrer">View Certificate →</a>
+        <span class="cert-verify">View Certificate →</span>
       </article>
 
-      <article class="cert-card" role="listitem" tabindex="0">
+      <article class="cert-card" role="listitem" tabindex="0"
+        data-cert-issuer="TryHackMe"
+        data-cert-title="Cybersecurity 101 Learning Path"
+        data-cert-year="In Progress"
+        data-cert-ext="https://tryhackme.com/p/CS.Krishna"
+        data-cert-img="/certs/tryhackme-101.jpg">
         <div class="cert-issuer">TryHackMe</div>
         <h3 class="cert-name">Cybersecurity 101 Learning Path</h3>
         <div class="cert-year">In Progress</div>
-        <a class="cert-verify" href="https://tryhackme.com" target="_blank" rel="noopener noreferrer">View Profile →</a>
+        <span class="cert-verify">View Profile →</span>
       </article>
 
     </div>
@@ -857,11 +868,77 @@
   </main>
 </div>
 
+<!-- ════════ CERT MODAL ════════ -->
+<div id="cert-modal" role="dialog" aria-modal="true" aria-label="Certificate viewer" style="
+  display:none;position:fixed;inset:0;z-index:5000;
+  background:rgba(14,12,10,0.85);backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;padding:20px;">
+
+  <div style="
+    background:var(--paper);border:1px solid var(--rule);
+    max-width:720px;width:100%;position:relative;
+    max-height:90vh;overflow-y:auto;border-radius:2px;">
+
+    <!-- Modal header -->
+    <div style="
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px 24px;border-bottom:1px solid var(--rule);
+      background:var(--paper-2);position:sticky;top:0;z-index:1;">
+      <div>
+        <div id="modal-issuer" style="font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;"></div>
+        <div id="modal-title" style="font-family:var(--font-serif);font-size:15px;font-weight:700;color:var(--ink);"></div>
+      </div>
+      <button id="modal-close" aria-label="Close" style="
+        width:32px;height:32px;border:1px solid var(--rule);background:none;
+        border-radius:2px;font-size:16px;cursor:pointer;color:var(--muted);
+        display:flex;align-items:center;justify-content:center;
+        transition:all 0.2s;flex-shrink:0;">✕</button>
+    </div>
+
+    <!-- Certificate display area -->
+    <div style="padding:28px 24px;">
+
+      <!-- Image viewer (for uploaded cert images) -->
+      <div id="modal-img-wrap" style="display:none;margin-bottom:20px;border:1px solid var(--rule);background:var(--paper-3);">
+        <img id="modal-img" src="" alt="Certificate" style="width:100%;display:block;">
+      </div>
+
+      <!-- PDF embed (for PDF certs) -->
+      <div id="modal-pdf-wrap" style="display:none;margin-bottom:20px;">
+        <iframe id="modal-pdf" src="" style="width:100%;height:500px;border:1px solid var(--rule);" title="Certificate PDF"></iframe>
+      </div>
+
+      <!-- Placeholder when no file uploaded yet -->
+      <div id="modal-placeholder" style="
+        border:2px dashed var(--rule);padding:48px 24px;
+        text-align:center;margin-bottom:20px;">
+        <div style="font-size:32px;margin-bottom:12px;">🏅</div>
+        <div style="font-family:var(--font-serif);font-size:16px;color:var(--ink-2);margin-bottom:8px;" id="modal-placeholder-title"></div>
+        <div style="font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:1px;">
+          To display this certificate here, add the image/PDF to your repo<br>
+          at <span id="modal-placeholder-path" style="color:var(--accent);"></span>
+        </div>
+      </div>
+
+      <!-- Meta row -->
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:16px;border-top:1px solid var(--rule);">
+        <div style="font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:1px;" id="modal-year"></div>
+        <a id="modal-ext-link" href="#" target="_blank" rel="noopener noreferrer" style="
+          font-family:var(--font-mono);font-size:10px;color:var(--accent);
+          letter-spacing:1.5px;text-transform:uppercase;
+          border-bottom:1px solid var(--accent);padding-bottom:1px;
+          text-decoration:none;">View on Issuer Site →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ════════ SCRIPTS ════════ -->
 <script src="/js/main.js"></script>
 <script src="/js/typewriter.js"></script>
 <script src="/js/terminal.js"></script>
 <script src="/js/contact.js"></script>
+<script src="/js/certmodal.js"></script>
 
 </body>
 </html>
