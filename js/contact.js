@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════
-   contact.js — form validation + Formspree
-   Works 100% on GitHub Pages — no backend needed.
+   contact.js: form validation + Formspree
+   Works 100% on GitHub Pages, no backend needed.
 
    SETUP: Go to https://formspree.io/new
    Create a free form → copy your endpoint URL
@@ -50,7 +50,7 @@
     const message = document.getElementById('f-message')?.value || '';
     const honey   = form.querySelector('[name="_honey"]')?.value || '';
 
-    // Honeypot — bots fill hidden fields
+    // Honeypot: bots fill hidden fields
     if (honey) return;
 
     if (!validate(name, email, message)) {

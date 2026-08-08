@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════
-   components.css — buttons, cards, terminal, forms
+   components.css: buttons, cards, terminal, forms
    ════════════════════════════════════════════════ */
 
 /* ─── BUTTONS ─── */
@@ -486,7 +486,7 @@ textarea.form-input { resize: none; min-height: 100px; }
   display: block;
 }
 
-/* Honeypot — hidden from humans */
+/* Honeypot, hidden from humans */
 .hp-field { display: none !important; }
 
 /* ─── EXPERIENCE TIMELINE ─── */

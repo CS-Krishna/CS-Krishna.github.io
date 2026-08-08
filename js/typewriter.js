@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════
-   typewriter.js — hero role switching animation
+   typewriter.js: hero role switching animation
    ════════════════════════════════════════════════ */
 
 'use strict';

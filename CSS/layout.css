@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════
-   layout.css — nav, drawer, pages, grid
+   layout.css: nav, drawer, pages, grid
    ════════════════════════════════════════════════ */
 
 /* ─── CUSTOM CURSOR ─── */
@@ -392,7 +392,7 @@
 }
 
 /* ─── PAGE SHELL ─── */
-/* Each "page" is full viewport — click nav to advance */
+/* Each "page" is full viewport, click nav to advance */
 .page-shell {
   min-height: 100vh;
   width: 100%;
@@ -550,7 +550,7 @@
 }
 
 /* ════════════════════════════════════════════════
-   MOBILE — full section responsive
+   MOBILE (full section responsive)
    ════════════════════════════════════════════════ */
 
 /* Section wrap tighter on small screens */
@@ -576,7 +576,7 @@
   /* Drawer full width */
   .drawer { width: 100%; }
 
-  /* Nav — hide text links */
+  /* Nav, hide text links */
   .nav-link { display: none; }
   .nav-btn  { display: none; }
   .topnav   { padding: 0 var(--sp-4); }

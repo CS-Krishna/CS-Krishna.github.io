@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════
-   terminal.js — interactive terminal widget
+   terminal.js: interactive terminal widget
    ════════════════════════════════════════════════ */
 'use strict';
 
@@ -14,19 +14,19 @@
     help: () => [
       { t: 'info', v: '// AVAILABLE COMMANDS' },
       { t: 'out',  v: '' },
-      { t: 'out',  v: '  about           — Investigator profile' },
-      { t: 'out',  v: '  experience       — Mission history' },
-      { t: 'out',  v: '  projects         — Open case files' },
-      { t: 'out',  v: '  skills           — Technology matrix' },
-      { t: 'out',  v: '  certifications   — Credential vault' },
-      { t: 'out',  v: '  achievements     — Commendations' },
-      { t: 'out',  v: '  contact          — Open secure channel' },
-      { t: 'out',  v: '  whoami           — Subject identity' },
-      { t: 'out',  v: '  resume           — Download CV' },
-      { t: 'out',  v: '  clear            — Clear terminal' },
-      { t: 'out',  v: '  exit             — Close terminal' },
+      { t: 'out',  v: '  about           : Investigator profile' },
+      { t: 'out',  v: '  experience       : Mission history' },
+      { t: 'out',  v: '  projects         : Open case files' },
+      { t: 'out',  v: '  skills           : Technology matrix' },
+      { t: 'out',  v: '  certifications   : Credential vault' },
+      { t: 'out',  v: '  achievements     : Commendations' },
+      { t: 'out',  v: '  contact          : Open secure channel' },
+      { t: 'out',  v: '  whoami           : Subject identity' },
+      { t: 'out',  v: '  resume           : Download CV' },
+      { t: 'out',  v: '  clear            : Clear terminal' },
+      { t: 'out',  v: '  exit             : Close terminal' },
       { t: 'out',  v: '' },
-      { t: 'cmt',  v: '  // Tip: use ↑↓ for history, Tab to autocomplete' },
+      { t: 'cmt',  v: '  // Tip: use up/down arrows for history, Tab to autocomplete' },
     ],
 
     whoami: () => [
@@ -34,7 +34,7 @@
       { t: 'out',  v: '' },
       { t: 'out',  v: '  Name        :  Krishna Sachdeva' },
       { t: 'out',  v: '  Role        :  Student' },
-      { t: 'out',  v: '  Institution :  NFSU Goa — M.Sc. DFIS' },
+      { t: 'out',  v: '  Institution :  NFSU Goa, M.Sc. DFIS' },
       { t: 'out',  v: '  Status      :  Available for Opportunities' },
       { t: 'out',  v: '' },
       { t: 'ok',   v: '  [VERIFIED] Subject record authenticated.' },
@@ -54,10 +54,10 @@
       return [
         { t: 'info', v: '// MISSION LOG' },
         { t: 'out',  v: '' },
-        { t: 'out',  v: '  [2026-06]  Central Forensics Science Laboratory, Chandigarh     — Forensic Intern  [ ACTIVE ]' },
-        { t: 'out',  v: '  [2024]     Netsmartz            — Cybersecurity Intern' },
-        { t: 'out',  v: '  [2023]     Super Student        — UAT Intern' },
-        { t: 'out',  v: '  [2025-27]  NFSU Goa             — M.Sc. DFIS           [ ACTIVE ]' },
+        { t: 'out',  v: '  [2026-06/07]  Central Forensics Science Laboratory, Chandigarh   : Forensic Intern' },
+        { t: 'out',  v: '  [2024]     Netsmartz            : Cybersecurity Intern' },
+        { t: 'out',  v: '  [2023]     Super Student        : UAT Intern' },
+        { t: 'out',  v: '  [2025-27]  NFSU Goa             : M.Sc. DFIS           [ ACTIVE ]' },
         { t: 'out',  v: '' },
         { t: 'ok',   v: '  Navigating...' },
       ];
@@ -70,7 +70,8 @@
         { t: 'out',  v: '' },
         { t: 'out',  v: '  [DF-001]   Android Forensics Tool' },
         { t: 'out',  v: '  [SEC-002]  Encryption, Steganography & Face Recognition' },
-        { t: 'out',  v: '  [ML-003]  Movie Recommendation System with Explainable AI' },
+        { t: 'out',  v: '  [ML-003]   Movie Recommendation System with Explainable AI' },
+        { t: 'out',  v: '  [DF-004]   Video Metadata Extractor (CCTV Edition)' },
         { t: 'out',  v: '' },
         { t: 'ok',   v: '  Navigating...' },
       ];
@@ -97,8 +98,8 @@
       return [
         { t: 'info', v: '// CREDENTIAL VAULT' },
         { t: 'out',  v: '' },
-        { t: 'out',  v: '  Google      — Cybersecurity Professional Certificate  [2023]' },
-        { t: 'out',  v: '  TryHackMe  — Cybersecurity 101 Learning Path          [ACTIVE]' },
+        { t: 'out',  v: '  Google      : Cybersecurity Professional Certificate  [COMPLETED]' },
+        { t: 'out',  v: '  TryHackMe  : Cybersecurity 101 Learning Path          [ACTIVE]' },
         { t: 'out',  v: '' },
         { t: 'ok',   v: '  Navigating...' },
       ];
@@ -109,11 +110,11 @@
       return [
         { t: 'info', v: '// COMMENDATION RECORD' },
         { t: 'out',  v: '' },
-        { t: 'out',  v: '  ✦  Android Forensics Tool — Published' },
-        { t: 'out',  v: '  ✦  CFSL Forensic Internship — June 2026' },
+        { t: 'out',  v: '  ✦  Android Forensics Tool: Built' },
+        { t: 'out',  v: '  ✦  CFSL Forensic Internship: Jun to Jul 2026' },
         { t: 'out',  v: '  ✦  Google Cybersecurity Certificate' },
         { t: 'out',  v: '  ✦  Active CTF Competitor' },
-        { t: 'out',  v: '  ✦  NFSU Goa — M.Sc. Admission' },
+        { t: 'out',  v: '  ✦  NFSU Goa: M.Sc. Admission' },
         { t: 'out',  v: '' },
         { t: 'ok',   v: '  Navigating...' },
       ];
@@ -124,9 +125,9 @@
       return [
         { t: 'info', v: '// SECURE CHANNEL' },
         { t: 'out',  v: '' },
-        { t: 'out',  v: '  Email    :  krishna@sachdevakrishna.me' },
+        { t: 'out',  v: '  Email    :  krishsach3305@gmail.com' },
         { t: 'out',  v: '  GitHub   :  github.com/CS-Krishna' },
-        { t: 'out',  v: '  LinkedIn :  linkedin.com/in/krishna-sachdev' },
+        { t: 'out',  v: '  LinkedIn :  linkedin.com/in/krishna-sacheva-' },
         { t: 'out',  v: '  Web      :  sachdevakrishna.me' },
         { t: 'out',  v: '' },
         { t: 'ok',   v: '  Establishing connection...' },
@@ -139,7 +140,7 @@
         { t: 'info', v: '// INITIATING DOWNLOAD' },
         { t: 'out',  v: '  Accessing credential archive...' },
         { t: 'out',  v: '  Verifying file integrity...' },
-        { t: 'ok',   v: '  KrishnaSachdev-CV.pdf — Download started.' },
+        { t: 'ok',   v: '  KrishnaSachdev-CV.pdf, download started.' },
       ];
     },
 

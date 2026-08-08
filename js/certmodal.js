@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════
-   certmodal.js — in-page certificate viewer
+   certmodal.js: in-page certificate viewer
    ════════════════════════════════════════════════ */
 'use strict';
 
@@ -40,7 +40,7 @@
     placeholder.style.display = 'none';
 
     if (img) {
-      // Try loading image — show placeholder if it 404s
+      // Try loading image, show placeholder if it 404s
       imgEl.onerror = () => {
         imgWrap.style.display     = 'none';
         placeholder.style.display = 'block';

@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════
-   main.js — cursor, drawer, page nav, reveal
+   main.js: cursor, drawer, page nav, reveal
    ════════════════════════════════════════════════ */
 'use strict';
 
@@ -76,7 +76,7 @@
   let current    = 0;
 
   // CSS already hides all .page-section via display:none
-  // We only need to manage classes — no style manipulation
+  // We only need to manage classes, no style manipulation
 
   function goTo(index, instant) {
     if (index < 0 || index >= TOTAL) return;
@@ -164,8 +164,86 @@
   // Expose for terminal.js
   window.portfolioNav = { goTo, navToId, SECTIONS };
 
-  // Show hero immediately on load — no timeout, no wait
+  // Show hero immediately on load, no timeout, no wait
   goTo(0, true);
+
+  /* ─── SCROLL-TO-NAVIGATE ───
+     Wheel/trackpad down at the bottom of a page's content → next page.
+     Wheel/trackpad up at the top of a page's content → previous page.
+     Mid-page scrolling (long pages like Projects/Achievements) scrolls
+     normally and does NOT change pages until a boundary is reached. */
+  const SCROLL_LOCK_MS   = 850;   // ignore further triggers while a page transition runs
+  const BOUNDARY_PX      = 4;     // tolerance for "at top" / "at bottom" checks
+  const WHEEL_THRESHOLD  = 12;    // ignore tiny trackpad jitter
+
+  let scrollLocked = false;
+
+  function lockScroll() {
+    scrollLocked = true;
+    setTimeout(() => { scrollLocked = false; }, SCROLL_LOCK_MS);
+  }
+
+  function isAtTop() {
+    return window.scrollY <= BOUNDARY_PX;
+  }
+  function isAtBottom() {
+    const scrollBottom = window.scrollY + window.innerHeight;
+    return scrollBottom >= document.documentElement.scrollHeight - BOUNDARY_PX;
+  }
+
+  // Elements with their own internal scroll, never hijack these
+  const INTERNAL_SCROLL_SEL = '.terminal-body, .drawer-nav, .exp-scroll, #cert-modal';
+
+  function isInsideInternalScroll(target) {
+    return !!target.closest?.(INTERNAL_SCROLL_SEL);
+  }
+
+  document.addEventListener('wheel', e => {
+    if (scrollLocked) return;
+    if (isInsideInternalScroll(e.target)) return;
+    if (Math.abs(e.deltaY) < WHEEL_THRESHOLD) return;
+
+    const scrollingDown = e.deltaY > 0;
+
+    if (scrollingDown && isAtBottom() && current < TOTAL - 1) {
+      e.preventDefault();
+      lockScroll();
+      goTo(current + 1);
+    } else if (!scrollingDown && isAtTop() && current > 0) {
+      e.preventDefault();
+      lockScroll();
+      goTo(current - 1);
+    }
+    // Otherwise: let the page scroll normally within its own content
+  }, { passive: false });
+
+  // Touch swipe support (mobile), mirrors the wheel logic above
+  let touchStartY = null;
+
+  document.addEventListener('touchstart', e => {
+    if (isInsideInternalScroll(e.target)) { touchStartY = null; return; }
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', e => {
+    if (touchStartY === null || scrollLocked) return;
+    const touchEndY = e.changedTouches[0].clientY;
+    const deltaY = touchStartY - touchEndY; // positive = swiped up (wants next page)
+    touchStartY = null;
+
+    const SWIPE_THRESHOLD = 60;
+    if (Math.abs(deltaY) < SWIPE_THRESHOLD) return;
+
+    const swipedUp = deltaY > 0;
+
+    if (swipedUp && isAtBottom() && current < TOTAL - 1) {
+      lockScroll();
+      goTo(current + 1);
+    } else if (!swipedUp && isAtTop() && current > 0) {
+      lockScroll();
+      goTo(current - 1);
+    }
+  }, { passive: true });
 })();
 
 /* ─── COUNT-UP ─── */
