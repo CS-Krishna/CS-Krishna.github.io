@@ -582,14 +582,6 @@
   .topnav   { padding: 0 var(--sp-4); }
 }
 
-/* Proj grid responsive */
-@media (max-width: 900px) {
-  .proj-grid { grid-template-columns: 1fr 1fr !important; }
-}
-@media (max-width: 560px) {
-  .proj-grid { grid-template-columns: 1fr !important; }
-}
-
 /* Cert grid responsive */
 @media (max-width: 640px) {
   .cert-grid { grid-template-columns: 1fr !important; }

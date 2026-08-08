@@ -203,7 +203,7 @@
 /* ─── PROJECT CARDS ─── */
 .proj-grid {
   display: grid;
-  grid-template-columns: 1.35fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1px;
   background: var(--rule);
   border: 1px solid var(--rule);
@@ -755,13 +755,11 @@ textarea.form-input { resize: none; min-height: 100px; }
 }
 
 @media (max-width: 1024px) {
-  .proj-grid { grid-template-columns: 1fr 1fr; }
   .cert-grid { grid-template-columns: repeat(2, 1fr); }
   .skills-groups { grid-template-columns: repeat(2, 1fr); }
   .achievements-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
-  .proj-grid { grid-template-columns: 1fr; }
   .cert-grid { grid-template-columns: 1fr; }
   .skills-groups { grid-template-columns: 1fr; }
   .achievements-grid { grid-template-columns: 1fr; }
