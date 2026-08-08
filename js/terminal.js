@@ -70,8 +70,7 @@
         { t: 'out',  v: '' },
         { t: 'out',  v: '  [DF-001]   Android Forensics Tool' },
         { t: 'out',  v: '  [SEC-002]  Encryption, Steganography & Face Recognition' },
-        { t: 'out',  v: '  [ML-003]   Movie Recommendation System with Explainable AI' },
-        { t: 'out',  v: '  [DF-004]   Video Metadata Extractor (CCTV Edition)' },
+        { t: 'out',  v: '  [DF-003]   Video Metadata Extractor (CCTV Edition)' },
         { t: 'out',  v: '' },
         { t: 'ok',   v: '  Navigating...' },
       ];
