@@ -77,6 +77,8 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -85,13 +87,16 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   cursor: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-img, video, svg { display: block; max-width: 100%; }
+/* Media elements can never force horizontal overflow */
+img, video, svg, canvas, iframe { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; }
 ul, ol { list-style: none; }
